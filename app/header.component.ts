@@ -4,20 +4,18 @@ import {Component} from 'angular2/core';
     selector: 'my-header',
     template: `
     <nav>
-     <a href="#!" class="brand-logo">LearningHARD</a>
-     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-     <ul class="right hide-on-med-and-down">
-       <li><a href="sass.html">Sass</a></li>
-       <li><a href="badges.html">Components</a></li>
-       <li><a href="collapsible.html">Javascript</a></li>
-       <li><a href="mobile.html">Mobile</a></li>
-     </ul>
-     <ul class="side-nav" id="mobile-demo">
-       <li><a href="sass.html">Sass</a></li>
-       <li><a href="badges.html">Components</a></li>
-       <li><a href="collapsible.html">Javascript</a></li>
-       <li><a href="mobile.html">Mobile</a></li>
-     </ul>
- </nav>`
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Flash</a>
+      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+      <li><a href="#">Register</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+    </div>
+  </nav>`
 })
 export class HeaderComponent { }
