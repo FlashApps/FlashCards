@@ -1,0 +1,59 @@
+body {
+    height: 100vh;
+}
+
+.landingImage {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    width:100%;
+    height:60%;
+}
+.landingImage img {
+    position: relative;
+    height: 75%;
+}
+
+.search {
+    display: flex;
+    flex-flow: row;
+}
+.search input {
+    margin-left: 10px;
+    font-size: 2em;
+}
+.search i {
+    margin-top: 10px;
+    font-size: 2em;
+}
+.landingText h2 {
+    font-size: 4em;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.landingImage .landingText {
+
+    position: relative;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+.landingText h3 {
+    font-weight: bold;
+    font-size: 1.75em;
+    margin-top: -30px;
+}
+
+.landingSearch {
+    background-color: #EE6E73;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.landingSearch h2, .landingSearch h3 {
+    margin: 5px;
+    font-size: 2em;
+}
