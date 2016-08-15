@@ -1,7 +1,9 @@
 import {Component} from 'angular2/core';
+import {HeaderComponent} from './header.component';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>Hello Angular</h1>'
+    template: '<my-header></my-header>'
+    directives: [HeaderComponent]
 })
 export class AppComponent { }
