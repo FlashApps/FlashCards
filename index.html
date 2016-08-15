@@ -1,10 +1,9 @@
 <html>
 
-  <head>
+<head>
     <title>Angular 2 QuickStart</title>
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="./styles.css" /> -->
+    <!-- Compiled and minified CSS -->
 
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
@@ -18,23 +17,37 @@
 
     <!-- 2. Configure SystemJS -->
     <script>
-      System.config({
-        packages: {
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/boot')
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/boot')
             .then(null, console.error.bind(console));
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="./styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 
-  </head>
+<!-- 3. Display the application -->
 
-  <!-- 3. Display the application -->
-  <body>
+<body>
     <my-app>Loading...</my-app>
-  </body>
+    <!--Import jQuery before materialize.js-->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $(".button-collapse").sideNav();
+        });
+    </script>
+</body>
 
 </html>
