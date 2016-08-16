@@ -11,7 +11,6 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
             <ul class="nav masthead-nav">
               <li class="active"><a href="#">Register</a></li>
               <li><a href="#">Sign In</a></li>
-              <li><a href="#">Contact</a></li>
             </ul>
           </nav>
         </div>

@@ -27,7 +27,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 HeaderComponent = __decorate([
                     core_1.Component({
                         selector: 'my-header',
-                        template: "\n      <div class=\"masthead clearfix\">\n        <div class=\"inner\">\n          <h3 class=\"masthead-brand\"><span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"></span> Flash</h3>\n          <nav>\n            <ul class=\"nav masthead-nav\">\n              <li class=\"active\"><a href=\"#\">Register</a></li>\n              <li><a href=\"#\">Sign In</a></li>\n              <li><a href=\"#\">Contact</a></li>\n            </ul>\n          </nav>\n        </div>\n      </div>",
+                        template: "\n      <div class=\"masthead clearfix\">\n        <div class=\"inner\">\n          <h3 class=\"masthead-brand\"><span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"></span> Flash</h3>\n          <nav>\n            <ul class=\"nav masthead-nav\">\n              <li class=\"active\"><a href=\"#\">Register</a></li>\n              <li><a href=\"#\">Sign In</a></li>\n            </ul>\n          </nav>\n        </div>\n      </div>",
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
