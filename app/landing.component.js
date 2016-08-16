@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './http-test.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, http_test_component_1;
     var LandingComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_test_component_1_1) {
+                http_test_component_1 = http_test_component_1_1;
             }],
         execute: function() {
             LandingComponent = (function () {
@@ -24,7 +27,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 LandingComponent = __decorate([
                     core_1.Component({
                         selector: 'landing-page',
-                        template: "\n    <main>\n        <div class=\"landingImage\">\n            <div class=\"landingText\">\n                <h2>Learn Anything</h2><br/>\n                <h3> AS NATURALLY AS LEARNING TO WALK</h3>\n            </div>\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n        <div class=\"landingSearch\">\n            <h2>SEARCH FOR ANYTHING TO STUDY</h2>\n            <div class='search'>\n                <i class=\"fa fa-search\" aria-hidden=\"true\"> </i>\n                <input type=\"text\" placeholder=\"Topic\" >\n            </div>\n            <h3>IT'S JUST THAT EASY!</h3>\n        </div>\n\n    </main>\n    "
+                        template: "\n    <main>\n        <div class=\"landingImage\">\n            <div class=\"landingText\">\n                <h2>Learn Anything</h2><br/>\n                <h3> AS NATURALLY AS LEARNING TO WALK</h3>\n            </div>\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n   <http-test></http-test>\n\n    </main>\n    ",
+                        directives: [http_test_component_1.HTTPTestComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], LandingComponent);

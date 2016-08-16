@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './header.component', './footer.component', './SearchResults.component', './landing.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './header.component', './footer.component', './SearchResults.component', './landing.component', './http-test.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './header.component', './fo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, header_component_1, footer_component_1, SearchResults_component_1, landing_component_1;
+    var core_1, router_1, header_component_1, footer_component_1, SearchResults_component_1, landing_component_1, http_test_component_1;
     var AppComponent;
     return {
         setters:[
@@ -31,6 +31,9 @@ System.register(['angular2/core', 'angular2/router', './header.component', './fo
             },
             function (landing_component_1_1) {
                 landing_component_1 = landing_component_1_1;
+            },
+            function (http_test_component_1_1) {
+                http_test_component_1 = http_test_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -39,13 +42,13 @@ System.register(['angular2/core', 'angular2/router', './header.component', './fo
                 AppComponent = __decorate([
                     router_1.RouteConfig([
                         { path: '/', name: 'Landing', component: landing_component_1.LandingComponent },
-                        { path: '/search', name: 'Search', component: SearchResults_component_1.SearchResultsComponent },
+                        { path: '/search/:query', name: 'Search', component: SearchResults_component_1.SearchResultsComponent },
                         { path: '/*other', name: 'Other', redirectTo: ['Landing'] }
                     ]),
                     core_1.Component({
                         selector: 'my-app',
                         template: "<my-header></my-header><router-outlet></router-outlet><my-footer></my-footer>",
-                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, router_1.ROUTER_DIRECTIVES]
+                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, http_test_component_1.HTTPTestComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
