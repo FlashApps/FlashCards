@@ -2,16 +2,21 @@ body {
     height: 100vh;
 }
 
+main {
+  padding-top: 5rem;
+  padding-bottom: 20rem;
+}
+
 .landingImage {
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
-    width:100%;
+    justify-content: center;
     height:60%;
 }
 .landingImage img {
+    display: none;
     position: relative;
-    height: 75%;
+    height: 100%;
 }
 
 .search {
@@ -26,27 +31,27 @@ body {
     margin-top: 10px;
     font-size: 2em;
 }
+
+.landingText {
+  padding: 3rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
 .landingText h2 {
-    font-size: 4em;
+    margin-bottom: 10px;
+    float: left;
+    font-size: 3em;
     font-family: serif;
-    font-weight: bold;
 }
-
-.landingImage .landingText {
-
-    position: relative;
-    margin-top: 0px;
-    margin-left: 20px;
-}
-
 .landingText h3 {
-    font-weight: bold;
-    font-size: 1.75em;
-    margin-top: -30px;
+  clear: both;
+  font-size: 1.2em;
+  font-weight: 100;
 }
-
 .landingSearch {
-    background-color: #EE6E73;
+    background-color: #716955;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -56,4 +61,31 @@ body {
 .landingSearch h2, .landingSearch h3 {
     margin: 5px;
     font-size: 2em;
+}
+
+.flashCardContainer {
+    position: relative;
+    min-height: 30rem;
+}
+
+.flashCardContainer p {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.flashCardSidebar {
+    min-height: 30rem;
+    overflow: auto;
+    max-height: 30rem;
+}
+
+.flashCardButtonContainer {
+    padding: 4rem;
+}
+
+.navigate {
+    margin-right: 4rem;
+    font-size: 4rem;
 }

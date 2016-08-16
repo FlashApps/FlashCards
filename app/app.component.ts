@@ -12,6 +12,7 @@ import { FormsModule }   from '@angular/forms';
 @RouteConfig([
     { path: '/', name: 'Landing', component: LandingComponent},
     { path: '/search/:query', name: 'Search', component: SearchResultsComponent},
+
     { path: '/*other', name: 'Other', redirectTo: ['Landing']}
 
 ])
@@ -22,4 +23,5 @@ import { FormsModule }   from '@angular/forms';
     directives: [HeaderComponent, FooterComponent, HTTPTestComponent, ROUTER_DIRECTIVES]
 })
 
-export class AppComponent { }
+export class AppComponent {
+}
