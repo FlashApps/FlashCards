@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-@ Component ({
+@Component ({
   selector: 'SearchResults',
 
   template:`
