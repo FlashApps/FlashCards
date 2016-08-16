@@ -11,11 +11,10 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
       <div class="col l4 offset-l2 s12">
          <a class="grey-text text-lighten-3" href="https://github.com/FlashApps" target='blank'><i class="fa fa-github" aria-hidden="true"></i> GitHub </a>
          <a class="grey-text text-lighten-3" href="#!"><i class="fa fa-star" aria-hidden="true"></i> Dev Team</a>
-         <a class="grey-text text-lighten-3" [routerLink]="['Search']"><i class="fa fa-star" aria-hidden="true"></i> Search</a>
       </div>
 
       <small class="footer-copyright">
-       © 2016 Flash Apps Group
+       © 2016 Flash Cards Group
       </small>
 
     </footer>
