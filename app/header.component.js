@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, router_1;
     var HeaderComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             HeaderComponent = (function () {
@@ -24,7 +27,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 HeaderComponent = __decorate([
                     core_1.Component({
                         selector: 'my-header',
-                        template: "\n    <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#!\" class=\"brand-logo\">Flash</a>\n      <a href=\"#!\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>\n      <ul class=\"right hide-on-med-and-down\">\n        <li><a href=\"#\">Register</a></li>\n        <li><a href=\"#\">Sign In</a></li>\n      </ul>\n      <ul class=\"side-nav\" id=\"mobile-demo\">\n      <li><a href=\"#\">Register</a></li>\n        <li><a href=\"#\">Sign In</a></li>\n      </ul>\n    </div>\n  </nav>"
+                        template: "\n    <nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink]=\"['Landing']\" class=\"brand-logo\">Flash</a>\n      <a href=\"#!\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>\n      <ul class=\"right hide-on-med-and-down\">\n        <li><a href=\"#\">Register</a></li>\n        <li><a href=\"#\">Sign In</a></li>\n      </ul>\n      <ul class=\"side-nav\" id=\"mobile-demo\">\n      <li><a href=\"#\">Register</a></li>\n        <li><a href=\"#\">Sign In</a></li>\n      </ul>\n    </div>\n  </nav>",
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HeaderComponent);

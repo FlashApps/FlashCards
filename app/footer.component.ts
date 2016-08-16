@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
     selector: 'my-footer',
@@ -15,7 +16,7 @@ import {Component} from 'angular2/core';
                <ul>
                  <li><a class="grey-text text-lighten-3" href="https://github.com/FlashApps" target='blank'><i class="fa fa-github" aria-hidden="true"></i> GitHub </a></li>
                  <li><a class="grey-text text-lighten-3" href="#!"><i class="fa fa-star" aria-hidden="true"></i> Dev Team</a></li>
-                 <li><a class="grey-text text-lighten-3" routerlink="/search"><i class="fa fa-star" aria-hidden="true" routerLinkActive="active"></i> Search</a></li>
+                 <li><a class="grey-text text-lighten-3" [routerLink]="['Search']"><i class="fa fa-star" aria-hidden="true"></i> Search</a></li>
                </ul>
              </div>
            </div>
@@ -25,6 +26,7 @@ import {Component} from 'angular2/core';
            © 2016 Flash Apps Group
            </div>
          </div>
-       </footer>`
+       </footer>`,
+       directives: [ROUTER_DIRECTIVES]
 })
 export class FooterComponent { }

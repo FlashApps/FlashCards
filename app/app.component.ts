@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, RouterOutlet} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {HeaderComponent} from './header.component';
 import {FooterComponent} from './footer.component';
@@ -16,7 +16,7 @@ import {LandingComponent} from './landing.component';
 @Component({
     selector: 'my-app',
     template: `<my-header></my-header><router-outlet></router-outlet><my-footer></my-footer>`,
-    directives: [HeaderComponent, FooterComponent, RouterOutlet]
+    directives: [HeaderComponent, FooterComponent, ROUTER_DIRECTIVES]
 })
 
 export class AppComponent { }

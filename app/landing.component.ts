@@ -16,7 +16,7 @@ import {Component} from 'angular2/core';
             <h2>SEARCH FOR ANYTHING TO STUDY</h2>
             <div class='search'>
                 <i class="fa fa-search" aria-hidden="true"> </i>
-                <input type="text" placeholder="Topic">
+                <input type="text" placeholder="Topic" >
             </div>
             <h3>IT'S JUST THAT EASY!</h3>
         </div>
