@@ -27,26 +27,22 @@ body {
     font-size: 2em;
 }
 .landingText h2 {
+    float: left;
     font-size: 4em;
     font-family: serif;
-    font-weight: bold;
 }
-
+.landingText h3 {
+  clear: both;
+  font-size: 1.75em;
+  font-weight: 100;
+}
 .landingImage .landingText {
-
     position: relative;
     margin-top: 0px;
     margin-left: 20px;
 }
-
-.landingText h3 {
-    font-weight: bold;
-    font-size: 1.75em;
-    margin-top: -30px;
-}
-
 .landingSearch {
-    background-color: #EE6E73;
+    background-color: #716955;
     display: flex;
     flex-flow: column;
     align-items: center;
