@@ -5,10 +5,12 @@ import {HeaderComponent} from './header.component';
 import {FooterComponent} from './footer.component';
 import {SearchResultsComponent} from './SearchResults.component';
 import {LandingComponent} from './landing.component';
+import {FlashcardComponent} from './flashcard.component';
 
 @RouteConfig([
     { path: '/', name: 'Landing', component: LandingComponent},
     { path: '/search', name: 'Search', component: SearchResultsComponent},
+    { path: '/flashcard', name: 'Flashcard', component: FlashcardComponent},
     { path: '/*other', name: 'Other', redirectTo: ['Landing']}
 
 ])
@@ -19,4 +21,5 @@ import {LandingComponent} from './landing.component';
     directives: [HeaderComponent, FooterComponent, ROUTER_DIRECTIVES]
 })
 
-export class AppComponent { }
+export class AppComponent {
+}

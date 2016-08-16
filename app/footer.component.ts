@@ -17,6 +17,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
                  <li><a class="grey-text text-lighten-3" href="https://github.com/FlashApps" target='blank'><i class="fa fa-github" aria-hidden="true"></i> GitHub </a></li>
                  <li><a class="grey-text text-lighten-3" href="#!"><i class="fa fa-star" aria-hidden="true"></i> Dev Team</a></li>
                  <li><a class="grey-text text-lighten-3" [routerLink]="['Search']"><i class="fa fa-star" aria-hidden="true"></i> Search</a></li>
+                 <li><a class="grey-text text-lighten-3" [routerLink]="['Flashcard']">Flashcard<i class="fa fa-star" aria-hidden="true"></i> Search</a></li>
                </ul>
              </div>
            </div>
