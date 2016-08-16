@@ -2,16 +2,21 @@ body {
     height: 100vh;
 }
 
+main {
+  padding-top: 5rem;
+  padding-bottom: 20rem;
+}
+
 .landingImage {
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
-    width:100%;
+    justify-content: center;
     height:60%;
 }
 .landingImage img {
+    display: none;
     position: relative;
-    height: 75%;
+    height: 100%;
 }
 
 .search {
@@ -26,20 +31,24 @@ body {
     margin-top: 10px;
     font-size: 2em;
 }
+
+.landingText {
+  padding: 3rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
 .landingText h2 {
+    margin-bottom: 10px;
     float: left;
-    font-size: 4em;
+    font-size: 3em;
     font-family: serif;
 }
 .landingText h3 {
   clear: both;
-  font-size: 1.75em;
+  font-size: 1.2em;
   font-weight: 100;
-}
-.landingImage .landingText {
-    position: relative;
-    margin-top: 0px;
-    margin-left: 20px;
 }
 .landingSearch {
     background-color: #716955;

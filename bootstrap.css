@@ -2,10 +2,7 @@
  * Globals
  */
 
- main {
-   padding-top: 10rem;
-   padding-bottom: 20rem;
- }
+
 
 /* Links */
 a,
@@ -78,7 +75,6 @@ body {
 
 .masthead-brand {
   margin-top: 10px;
-  margin-left: 20px;
   margin-bottom: 10px;
 }
 
@@ -112,7 +108,16 @@ body {
 }
 
 @media (min-width: 768px) {
+
+  .landingImage {
+    background-color: white;
+    color: #333;
+  }
+  .landingImage img {
+    display: inline-block;
+  }
   .masthead-brand {
+    padding-left: 20px;
     float: left;
   }
   .masthead-nav {
@@ -182,5 +187,18 @@ footer small {
   .mastfoot,
   .cover-container {
     width: 100%;
+  }
+  .landingText {
+    padding-left: 10rem;
+    background-color: white;
+  }
+  .landingText h3, .landingText h2 {
+    margin: 0px;
+  }
+  .landingText {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5rem;
+    align-items: flex-start;
   }
 }
