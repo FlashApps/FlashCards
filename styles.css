@@ -57,3 +57,30 @@ body {
     margin: 5px;
     font-size: 2em;
 }
+
+.flashCardContainer {
+    position: relative;
+    min-height: 30rem;
+}
+
+.flashCardContainer p {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.flashCardSidebar {
+    min-height: 30rem;
+    overflow: auto;
+    max-height: 30rem;
+}
+
+.flashCardButtonContainer {
+    padding: 4rem;
+}
+
+.navigate {
+    margin-right: 4rem;
+    font-size: 4rem;
+}
