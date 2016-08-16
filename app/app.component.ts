@@ -19,4 +19,6 @@ import {LandingComponent} from './landing.component';
     directives: [HeaderComponent, FooterComponent, ROUTER_DIRECTIVES]
 })
 
-export class AppComponent { }
+export class AppComponent {
+    title = aasdfsd
+}
