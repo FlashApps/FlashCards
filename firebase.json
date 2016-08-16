@@ -1,0 +1,7 @@
+{
+  "firebase": "letslearn",
+  "public": ".",
+  "ignore": [
+    "firebase.json"
+  ]
+}
