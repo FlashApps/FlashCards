@@ -4,6 +4,7 @@
 
  main {
    padding-top: 10rem;
+   padding-bottom: 20rem;
  }
 
 /* Links */
@@ -70,17 +71,20 @@ body {
  * Header
  */
 .masthead {
-  padding: 10px;
+  background-color: #333333;
+  box-shadow: 0px 2px 3px #333333;
+  z-index: 2;
 }
 
 .masthead-brand {
   margin-top: 10px;
+  margin-left: 20px;
   margin-bottom: 10px;
 }
 
 .masthead-nav > li {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 40px;
 }
 .masthead-nav > li + li {
   margin-left: 20px;
@@ -134,12 +138,19 @@ body {
  * Footer
  */
 
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
+footer {
+  padding: 10px;
+  background-color: #333333;
+  box-shadow: 0px -2px 3px #333333;
 }
 
+.page-footer a {
+  font-size: 1.5em;
+}
 
+footer small {
+  margin-bottom: 10px;
+}
 /*
  * Affix and center
  */
