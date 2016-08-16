@@ -17,10 +17,14 @@ import {Component} from 'angular2/core';
            <div class="card-action">
              <a href="#">This is a link</a>
            </div>
+
          </div>
        </div>
+       <div class="col s12 m5" *ngFor="#flashcard of flashcards">{{flashcard}}</div>
      </div>
   `
 })
 
-export class SearchResultsComponent { }
+export class SearchResultsComponent {
+    flashcards = ["Card1", "Card2", "Card3"];
+}

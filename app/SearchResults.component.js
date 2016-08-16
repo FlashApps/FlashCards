@@ -20,11 +20,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             SearchResultsComponent = (function () {
                 function SearchResultsComponent() {
+                    this.flashcards = ["Card1", "Card2", "Card3"];
                 }
                 SearchResultsComponent = __decorate([
                     core_1.Component({
                         selector: 'SearchResults',
-                        template: "\n  <div class=\"row\">\n       <div class=\"col s12 m7\">\n         <div class=\"card\">\n           <div class=\"card-image\">\n             <img src=\"http://materializecss.com/images/sample-1.jpg\">\n             <span class=\"card-title\">Card Title</span>\n           </div>\n           <div class=\"card-content\">\n             <p>I am a very simple card. I am good at containing small bits of information.\n             I am convenient because I require little markup to use effectively.</p>\n           </div>\n           <div class=\"card-action\">\n             <a href=\"#\">This is a link</a>\n           </div>\n         </div>\n       </div>\n     </div>\n  "
+                        template: "\n  <div class=\"row\">\n       <div class=\"col s12 m7\">\n         <div class=\"card\">\n           <div class=\"card-image\">\n             <img src=\"http://materializecss.com/images/sample-1.jpg\">\n             <span class=\"card-title\">Card Title</span>\n           </div>\n           <div class=\"card-content\">\n             <p>I am a very simple card. I am good at containing small bits of information.\n             I am convenient because I require little markup to use effectively.</p>\n           </div>\n           <div class=\"card-action\">\n             <a href=\"#\">This is a link</a>\n           </div>\n\n         </div>\n       </div>\n       <div class=\"col s12 m5\" *ngFor=\"#flashcard of flashcards\">{{flashcard}}</div>\n     </div>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], SearchResultsComponent);

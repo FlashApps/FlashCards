@@ -45,7 +45,7 @@ System.register(['angular2/core', 'angular2/router', './header.component', './fo
                     core_1.Component({
                         selector: 'my-app',
                         template: "<my-header></my-header><router-outlet></router-outlet><my-footer></my-footer>",
-                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, router_1.RouterOutlet]
+                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
