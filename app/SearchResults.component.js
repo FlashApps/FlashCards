@@ -20,8 +20,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             SearchResultsComponent = (function () {
                 function SearchResultsComponent() {
-                    this.flashcards = ["Card1", "Card2", "Card3"];
                 }
+                SearchResultsComponent.prototype.construtor = function (route) {
+                };
+                SearchResultsComponent.prototype.ngOnInit = function () {
+                    console.log(this);
+                    // .map(params => params['query'])
+                    // .subscribe((query) => {
+                    //   this.HTTPTestService
+                    //     .getContact(query)
+                    //     .subscribe(contact => this.contact = contact);
+                };
+                ;
                 SearchResultsComponent = __decorate([
                     core_1.Component({
                         selector: 'SearchResults',

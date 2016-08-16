@@ -1,4 +1,8 @@
 import {Component} from 'angular2/core';
+import {HTTPTestService} from './http-test.service';
+import {ActivatedRoute} from '@angular/router';
+
+
 @Component ({
   selector: 'SearchResults',
 
@@ -26,5 +30,16 @@ import {Component} from 'angular2/core';
 })
 
 export class SearchResultsComponent {
-    flashcards = ["Card1", "Card2", "Card3"];
+  construtor(private route: ActivatedRoute){
+
+  }
+  ngOnInit() {
+    console.log(this)
+      // .map(params => params['query'])
+      // .subscribe((query) => {
+      //   this.HTTPTestService
+      //     .getContact(query)
+      //     .subscribe(contact => this.contact = contact);
+    });
+
 }
