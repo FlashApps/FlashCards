@@ -35,7 +35,6 @@ System.register(['angular2/core', 'angular2/router', './header.component', './fo
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = aasdfsd;
                 }
                 AppComponent = __decorate([
                     router_1.RouteConfig([

@@ -20,5 +20,4 @@ import {LandingComponent} from './landing.component';
 })
 
 export class AppComponent {
-    title = aasdfsd
 }
