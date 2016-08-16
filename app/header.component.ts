@@ -6,7 +6,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
     template: `
       <div class="masthead clearfix">
         <div class="inner">
-          <h3 class="masthead-brand"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Flash</h3>
+          <a href="/"><h3 class="masthead-brand"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Flash</h3></a>
           <nav>
             <ul class="nav masthead-nav">
               <li class="active"><a href="#">Register</a></li>

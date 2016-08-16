@@ -27,12 +27,8 @@ System.register(['angular2/core', './http-test.component'], function(exports_1, 
                 LandingComponent = __decorate([
                     core_1.Component({
                         selector: 'landing-page',
-<<<<<<< HEAD
-                        template: "\n    <main>\n        <div class=\"landingImage\">\n            <div class=\"landingText\">\n                <h2>Learn Anything</h2><br/>\n                <h3> AS NATURALLY AS LEARNING TO WALK</h3>\n            </div>\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n   <http-test></http-test>\n\n    </main>\n    ",
+                        template: "\n    <main>\n        <div class=\"landingImage\">\n            <div class=\"landingText\">\n                <h2>Learn Anything</h2>\n                <h3>AS NATURALLY AS LEARNING TO WALK</h3>\n            </div>\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n   <http-test></http-test>\n\n    </main>\n    ",
                         directives: [http_test_component_1.HTTPTestComponent]
-=======
-                        template: "\n    <main>\n        <div class=\"landingImage\">\n            <div class=\"landingText\">\n                <h2>Learn Anything</h2>\n                <h3>AS NATURALLY AS LEARNING TO WALK</h3>\n            </div>\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n        <div class=\"landingSearch\">\n            <h2>SEARCH FOR ANYTHING TO STUDY</h2>\n            <div class='search'>\n                <i class=\"fa fa-search\" aria-hidden=\"true\"> </i>\n                <input type=\"text\" placeholder=\"Topic\" >\n            </div>\n            <h3>IT'S JUST THAT EASY!</h3>\n        </div>\n\n    </main>\n    "
->>>>>>> 7314039d275e1522fe6a921325656c756d901d7f
                     }), 
                     __metadata('design:paramtypes', [])
                 ], LandingComponent);

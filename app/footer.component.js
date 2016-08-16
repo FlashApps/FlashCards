@@ -27,7 +27,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 FooterComponent = __decorate([
                     core_1.Component({
                         selector: 'my-footer',
-                        template: "\n<div class=\"mastfoot\">\n  <div class=\"inner\">\n    <footer class=\"page-footer\">\n\n      <div class=\"col l4 offset-l2 s12\">\n         <a class=\"grey-text text-lighten-3\" href=\"https://github.com/FlashApps\" target='blank'><i class=\"fa fa-github\" aria-hidden=\"true\"></i> GitHub </a>\n         <a class=\"grey-text text-lighten-3\" href=\"#!\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i> Dev Team</a>\n         <a class=\"grey-text text-lighten-3\" [routerLink]=\"['Search']\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i> Search</a>\n      </div>\n\n      <small class=\"footer-copyright\">\n       \u00A9 2016 Flash Apps Group\n      </small>\n\n    </footer>\n  </div>\n</div>",
+                        template: "\n<div class=\"mastfoot\">\n  <div class=\"inner\">\n    <footer class=\"page-footer\">\n\n      <div class=\"col l4 offset-l2 s12\">\n         <a class=\"grey-text text-lighten-3\" href=\"https://github.com/FlashApps\" target='blank'><i class=\"fa fa-github\" aria-hidden=\"true\"></i> GitHub </a>\n         <a class=\"grey-text text-lighten-3\" href=\"#!\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i> Dev Team</a>\n      </div>\n\n      <small class=\"footer-copyright\">\n       \u00A9 2016 Flash Cards Group\n      </small>\n\n    </footer>\n  </div>\n</div>",
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
