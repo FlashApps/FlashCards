@@ -4,20 +4,18 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 @Component({
     selector: 'my-header',
     template: `
-    <nav>
-    <div class="nav-wrapper">
-      <a [routerLink]="['Landing']" class="brand-logo">Flash</a>
-      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Sign In</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-      <li><a href="#">Register</a></li>
-        <li><a href="#">Sign In</a></li>
-      </ul>
-    </div>
-  </nav>`,
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Flash</h3>
+          <nav>
+            <ul class="nav masthead-nav">
+              <li class="active"><a href="#">Register</a></li>
+              <li><a href="#">Sign In</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>`,
   directives: [ROUTER_DIRECTIVES]
 })
 export class HeaderComponent { }
