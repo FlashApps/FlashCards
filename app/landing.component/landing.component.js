@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,28 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
-    var HeaderComponent;
+    var core_1;
+    var LandingComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             }],
         execute: function() {
-            HeaderComponent = (function () {
-                function HeaderComponent() {
+            LandingComponent = (function () {
+                function LandingComponent() {
                 }
-                HeaderComponent = __decorate([
+                LandingComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-header',
-                        template: "\n      <div class=\"masthead clearfix\">\n        <div class=\"inner\">\n          <h3 class=\"masthead-brand\"><span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"></span> Flash</h3>\n          <nav>\n            <ul class=\"nav masthead-nav\">\n              <li class=\"active\"><a href=\"#\">Register</a></li>\n              <li><a href=\"#\">Sign In</a></li>\n            </ul>\n          </nav>\n        </div>\n      </div>",
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        selector: 'landing-page',
+                        template: "\n    <main>\n        <div class=\"landingImage\">\n            <div class=\"landingText\">\n                <h2>Learn Anything</h2>\n                <h3>AS NATURALLY AS LEARNING TO WALK</h3>\n            </div>\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n\n    </main>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
-                ], HeaderComponent);
-                return HeaderComponent;
+                ], LandingComponent);
+                return LandingComponent;
             }());
-            exports_1("HeaderComponent", HeaderComponent);
+            exports_1("LandingComponent", LandingComponent);
         }
     }
 });
-//# sourceMappingURL=header.component.js.map
+//# sourceMappingURL=landing.component.js.map

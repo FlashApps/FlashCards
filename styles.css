@@ -89,3 +89,7 @@ main {
     margin-right: 4rem;
     font-size: 4rem;
 }
+
+#mySearch {
+    width: 50%;
+}
