@@ -18,9 +18,10 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   </form>
 
  <div class="row">
+ <h3 *ngIf="decks[0]">Available Flashcard Decks</h3>
  <ul>
     <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action" *ngFor="#deck of decks">{{deck.title}}</a>
+        <a class="list-group-item list-group-item-action" *ngFor="#deck of decks" [routerLink]="['FlashCard']">{{deck.title}} - ({{deck.term_count}})</a>
     </div>
  </ul>
  </div>
