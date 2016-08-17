@@ -45,7 +45,6 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                         });
                         keyups.subscribe(function (data) {
                             _this.decks = data.sets;
-                            console.log(data);
                         });
                     });
                 };
