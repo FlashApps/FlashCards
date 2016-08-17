@@ -12,21 +12,20 @@ import {Component} from 'angular2/core';
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3 col-md-3">
-                <a class="btn btn-info btn-md btn-block" href="#" role="button">Practice</a>
-                <a class="btn btn-info btn-md btn-block" href="#" role="button">Study</a>
-                    <a class="btn btn-info btn-md btn-block" href="#" role="button">Test</a>
-                </div>
-
-                <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
-
-                <div class="col-sm-8 col-md-8 well text-center">
-                    <i class="fa fa-chevron-circle-left navigate"></i>
-                    <i class="fa fa-play navigate"></i>
-                    <i class="fa fa-chevron-circle-right navigate"></i>
-                </div>
-
-            </div>
+               <div class="col-lg-4 col-md-4 hidden-sm hidden-xs"></div>
+               <div class="col-sm-8 col-md-8 text-center">
+                 <button type="button" class="btn btn-default btn-lg">
+                 <span class="glyphicon glyphicon-menu-left
+                 " aria-hidden="true"></span> Last
+                 </button>
+                 <button type="button" class="btn btn-default btn-lg">
+                   <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Flip
+                 </button>
+                 <button type="button" class="btn btn-default btn-lg">
+                   <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> Next
+                 </button>
+               </div>
+           </div>
 
         </main>
     `

@@ -12,7 +12,7 @@ import {FlashcardComponent} from '../flashcard.component/flashcard.component';
 @RouteConfig([
     { path: '/', name: 'Home', component: LandingComponent},
     { path: '/search', name: 'Search', component: SearchResultsComponent},
-    { path: '/study', name: 'FlashCard', component: FlashcardComponent},
+    { path: '/study/:id', name: 'FlashCard', component: FlashcardComponent},
     { path: '/*other', name: 'Other', redirectTo: ['Home']}
 
 ])

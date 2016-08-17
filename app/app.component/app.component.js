@@ -43,7 +43,7 @@ System.register(['angular2/core', 'angular2/router', '../header.component/header
                     router_1.RouteConfig([
                         { path: '/', name: 'Home', component: landing_component_1.LandingComponent },
                         { path: '/search', name: 'Search', component: SearchResults_component_1.SearchResultsComponent },
-                        { path: '/study', name: 'FlashCard', component: flashcard_component_1.FlashcardComponent },
+                        { path: '/study/:id', name: 'FlashCard', component: flashcard_component_1.FlashcardComponent },
                         { path: '/*other', name: 'Other', redirectTo: ['Home'] }
                     ]),
                     core_1.Component({
