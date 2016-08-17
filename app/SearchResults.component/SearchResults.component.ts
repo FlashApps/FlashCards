@@ -21,7 +21,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
  <h3 *ngIf="decks[0]">Available Flashcard Decks</h3>
  <ul>
     <div class="list-group">
-        <a class="list-group-item list-group-item-action" *ngFor="#deck of decks" [routerLink]="['FlashCard']">{{deck.title}} - ({{deck.term_count}})</a>
+        <p *ngFor="#deck of decks"><a class="list-group-item list-group-item-action"  [routerLink]="['FlashCard', {id: deck.id}]"><strong>{{deck.title}}</strong> - Card Count: {{deck.term_count}}</a></p>
     </div>
  </ul>
  </div>
@@ -30,7 +30,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
     directives: [ROUTER_DIRECTIVES]
 })
 
-export class SearchResultsComponent implements AfterViewInit {
+export class SearchResultsComponent implements OnInit {
 
     public decks = [];
 
