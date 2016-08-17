@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, AfterViewInit} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
@@ -20,7 +20,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
  <div class="row">
  <ul>
     <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action" *ngFor="#deck of decks.sets">1</a>
+        <a href="#" class="list-group-item list-group-item-action" *ngFor="#deck of decks">{{deck.title}}</a>
     </div>
  </ul>
  </div>
@@ -31,17 +31,16 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 export class SearchResultsComponent implements AfterViewInit {
 
-    public decks = {};
+    public decks = [];
 
     constructor() {
-        this.decks = {};
+        this.decks = [];
     }
 
 
+    ngOnInit() {
 
-    ngAfterViewInit() {
-
-        $(document).ready(function() {
+        $(document).ready(() => {
             var keyups = Observable.fromEvent($("#searchForm"), "keyup")
                 .map(e => e.target.value)
                 .filter(text => text.length >= 3)
@@ -53,12 +52,15 @@ export class SearchResultsComponent implements AfterViewInit {
                     return Observable.fromPromise(promise);
                 });
 
-            keyups.subscribe(data => {
-                this.decks = data;
-                console.log(this.decks)
-            })
+                keyups.subscribe(data => {
+                    this.decks = data.sets;
+                    console.log(data)
+                })
         });
     }
+
+
+
 
 }
 //    constructor(){

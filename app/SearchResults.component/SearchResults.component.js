@@ -27,12 +27,12 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
         execute: function() {
             SearchResultsComponent = (function () {
                 function SearchResultsComponent() {
-                    this.decks = {};
-                    this.decks = {};
+                    this.decks = [];
+                    this.decks = [];
                 }
-                SearchResultsComponent.prototype.ngAfterViewInit = function () {
+                SearchResultsComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     $(document).ready(function () {
-                        var _this = this;
                         var keyups = Rx_1.Observable.fromEvent($("#searchForm"), "keyup")
                             .map(function (e) { return e.target.value; })
                             .filter(function (text) { return text.length >= 3; })
@@ -44,15 +44,15 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                             return Rx_1.Observable.fromPromise(promise);
                         });
                         keyups.subscribe(function (data) {
-                            _this.decks = data;
-                            console.log(_this.decks);
+                            _this.decks = data.sets;
+                            console.log(data);
                         });
                     });
                 };
                 SearchResultsComponent = __decorate([
                     core_1.Component({
                         selector: 'SearchResults',
-                        template: "\n  <main>\n     <form class=\"form-inline\" >\n  \u00A0 \u00A0<div class=\"form-group\">\n\u00A0 \u00A0 \u00A0 <label for=\"searchForm\">Search</label>\n\u00A0 \u00A0 \u00A0 <input type=\"text\" class=\"form-control\" id=\"searchForm\" placeholder=\"Search\">\n\u00A0 \u00A0 </div>\n\u00A0 \u00A0 <button\u00A0id=\"mySearch\" type=\"submit\" class=\"btn btn-primary\">Search</button>\n\u00A0 </form>\n\n <div class=\"row\">\n\u00A0<ul>\n\u00A0   <div class=\"list-group\">\n\u00A0 \u00A0     <a href=\"#\" class=\"list-group-item list-group-item-action\" *ngFor=\"#deck of decks.sets\">1</a>\n\u00A0   </div>\n </ul>\n\u00A0</div>\n\u00A0</main>\n  ",
+                        template: "\n  <main>\n     <form class=\"form-inline\" >\n  \u00A0 \u00A0<div class=\"form-group\">\n\u00A0 \u00A0 \u00A0 <label for=\"searchForm\">Search</label>\n\u00A0 \u00A0 \u00A0 <input type=\"text\" class=\"form-control\" id=\"searchForm\" placeholder=\"Search\">\n\u00A0 \u00A0 </div>\n\u00A0 \u00A0 <button\u00A0id=\"mySearch\" type=\"submit\" class=\"btn btn-primary\">Search</button>\n\u00A0 </form>\n\n <div class=\"row\">\n\u00A0<ul>\n\u00A0   <div class=\"list-group\">\n\u00A0 \u00A0     <a href=\"#\" class=\"list-group-item list-group-item-action\" *ngFor=\"#deck of decks\">{{deck.title}}</a>\n\u00A0   </div>\n </ul>\n\u00A0</div>\n\u00A0</main>\n  ",
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
