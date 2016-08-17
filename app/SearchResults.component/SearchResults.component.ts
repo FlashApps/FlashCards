@@ -55,7 +55,6 @@ export class SearchResultsComponent implements OnInit {
 
                 keyups.subscribe(data => {
                     this.decks = data.sets;
-                    console.log(data)
                 })
         });
     }
