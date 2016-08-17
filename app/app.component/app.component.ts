@@ -5,12 +5,14 @@ import {HeaderComponent} from '../header.component/header.component';
 import {FooterComponent} from '../footer.component/footer.component';
 import {SearchResultsComponent} from '../SearchResults.component/SearchResults.component';
 import {LandingComponent} from '../landing.component/landing.component';
+import {FlashcardComponent} from '../flashcard.component/flashcard.component';
 
 
 
 @RouteConfig([
     { path: '/', name: 'Home', component: LandingComponent},
     { path: '/search', name: 'Search', component: SearchResultsComponent},
+    { path: '/study', name: 'FlashCard', component: FlashcardComponent},
     { path: '/*other', name: 'Other', redirectTo: ['Home']}
 
 ])
@@ -22,5 +24,5 @@ import {LandingComponent} from '../landing.component/landing.component';
 })
 
 export class AppComponent {
-    
+
 }
