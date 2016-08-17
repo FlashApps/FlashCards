@@ -1,46 +1,83 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component} from 'angular2/core';
+import {Component, AfterViewInit} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
+@Component({
+    selector: 'SearchResults',
 
-@Component ({
-  selector: 'SearchResults',
+    template: `
+  <main>
+     <form class="form-inline" >
+     <div class="form-group">
+      <label for="searchForm">Search</label>
+      <input type="text" class="form-control" id="searchForm" placeholder="Search">
+    </div>
+    <button id="mySearch" type="submit" class="btn btn-primary">Search</button>
+  </form>
 
-  template:`
-  <div class="row">
-       <div class="col s12 m7">
-         <div class="card">
-           <div class="card-image">
-
-             <span class="card-title">Card Title</span>
-           </div>
-           <div class="card-content">
-             <p>I am a very simple card. I am good at containing small bits of information.
-             I am convenient because I require little markup to use effectively.</p>
-           </div>
-           <div class="card-action">
-             <a href="#">This is a link</a>
-           </div>
-
-         </div>
-       </div>
-       <div>
-
-       </div>
-     </div>
-     <input type="text" id="mySearch" class="form-control">
-  `
+ <div class="row">
+ <ul>
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action" *ngFor="#deck of decks.sets">1</a>
+    </div>
+ </ul>
+ </div>
+ </main>
+  `,
+    directives: [ROUTER_DIRECTIVES]
 })
 
-export class SearchResultsComponent {
-    constructor(){
-        $('#mySearch').keyup(function(e){
-            e.preventDefault();
-            console.log("BABABABANANNA")
-        })
+export class SearchResultsComponent implements AfterViewInit {
+
+    public decks = {};
+
+    constructor() {
+        this.decks = {};
     }
 
+
+
+    ngAfterViewInit() {
+
+        $(document).ready(function() {
+            var keyups = Observable.fromEvent($("#searchForm"), "keyup")
+                .map(e => e.target.value)
+                .filter(text => text.length >= 3)
+                .debounceTime(400)
+                .distinctUntilChanged()
+                .flatMap(searchTerm => {
+                    var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
+                    var promise = $.getJSON(url);
+                    return Observable.fromPromise(promise);
+                });
+
+            keyups.subscribe(data => {
+                this.decks = data;
+                console.log(this.decks)
+            })
+        });
+    }
+
+}
+//    constructor(){
+//      $(document).ready(function(){
+//         var keyups = Observable.fromEvent($("#mySearch"), "keyup")
+//           .map(e => e.target.value)
+//           // .filter(text => text.length >= 3)
+//           // .debounceTime(400)
+//           .distinctUntilChanged()
+//           .flatMap(searchTerm => {
+//               console.log("BABABABABANNANANANA")
+//               var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q="+searchTerm;
+//               var promise = $.getJSON(url);
+//               return Observable.fromPromise(promise);
+//           });
+//
+//       keyups.subscribe(data => console.log(data))
+//     });
+// }
 
 
 
@@ -56,18 +93,5 @@ export class SearchResultsComponent {
         //       console.log(cards);
         //   })
     //   })
-    //   var keyups = Observable.fromEvent($("#search"), "keyup")
-    //         .map(e => e.target.value)
-    //         // .filter(text => text.length >= 3)
-    //         // .debounceTime(400)
-    //         .distinctUntilChanged()
-    //         .flatMap(searchTerm => {
-    //             console.log("BABABABABANNANANANA")
-    //             var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q="+searchTerm;
-    //             var promise = $.getJSON(url);
-    //             return Observable.fromPromise(promise);
-    //         });
-      //
-    //     keyups.subscribe(data => console.log(data))
-  }
+
 // }
