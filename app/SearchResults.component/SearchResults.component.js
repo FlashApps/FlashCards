@@ -1,5 +1,5 @@
 /// <reference path="../../typings/tsd.d.ts" />
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,29 +11,49 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, Rx_1, router_1;
     var SearchResultsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             SearchResultsComponent = (function () {
                 function SearchResultsComponent() {
-                    $('#mySearch').keyup(function (e) {
-                        e.preventDefault();
-                        console.log("BABABABANANNA");
-                    });
+                    this.decks = {};
+                    this.decks = {};
                 }
+                SearchResultsComponent.prototype.ngAfterViewInit = function () {
+                    $(document).ready(function () {
+                        var _this = this;
+                        var keyups = Rx_1.Observable.fromEvent($("#searchForm"), "keyup")
+                            .map(function (e) { return e.target.value; })
+                            .filter(function (text) { return text.length >= 3; })
+                            .debounceTime(400)
+                            .distinctUntilChanged()
+                            .flatMap(function (searchTerm) {
+                            var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
+                            var promise = $.getJSON(url);
+                            return Rx_1.Observable.fromPromise(promise);
+                        });
+                        keyups.subscribe(function (data) {
+                            _this.decks = data;
+                            console.log(_this.decks);
+                        });
+                    });
+                };
                 SearchResultsComponent = __decorate([
                     core_1.Component({
                         selector: 'SearchResults',
-<<<<<<< HEAD:app/SearchResults.component/SearchResults.component.js
-                        template: "\n  <div class=\"row\">\n       <div class=\"col s12 m7\">\n         <div class=\"card\">\n           <div class=\"card-image\">\n\n             <span class=\"card-title\">Card Title</span>\n           </div>\n           <div class=\"card-content\">\n             <p>I am a very simple card. I am good at containing small bits of information.\n             I am convenient because I require little markup to use effectively.</p>\n           </div>\n           <div class=\"card-action\">\n             <a href=\"#\">This is a link</a>\n           </div>\n\n         </div>\n       </div>\n       <div>\n\n       </div>\n     </div>\n     <input type=\"text\" id=\"mySearch\" class=\"form-control\">\n  "
-=======
-                        template: "\n<main>\n  <div class=\"row\">\n  <ul>\n   <div class=\"list-group\">\n     <a href=\"#\" class=\"list-group-item list-group-item-action\">Dapibus ac facilisis in </a>\n   </div>\n       <div class=\"list-group col-sm-12\" *ngFor=\"#flashcard of flashcards\">{{flashcard}}</div>\n    </ul>\n  </div>\n  </main>\n  "
->>>>>>> bfd150f28e1e7ea948208c57eb7a72629fcd0030:app/SearchResults.component.js
+                        template: "\n  <main>\n     <form class=\"form-inline\" >\n  \u00A0 \u00A0<div class=\"form-group\">\n\u00A0 \u00A0 \u00A0 <label for=\"searchForm\">Search</label>\n\u00A0 \u00A0 \u00A0 <input type=\"text\" class=\"form-control\" id=\"searchForm\" placeholder=\"Search\">\n\u00A0 \u00A0 </div>\n\u00A0 \u00A0 <button\u00A0id=\"mySearch\" type=\"submit\" class=\"btn btn-primary\">Search</button>\n\u00A0 </form>\n\n <div class=\"row\">\n\u00A0<ul>\n\u00A0   <div class=\"list-group\">\n\u00A0 \u00A0     <a href=\"#\" class=\"list-group-item list-group-item-action\" *ngFor=\"#deck of decks.sets\">1</a>\n\u00A0   </div>\n </ul>\n\u00A0</div>\n\u00A0</main>\n  ",
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], SearchResultsComponent);
@@ -43,5 +63,33 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         }
     }
 });
+//    constructor(){
+//      $(document).ready(function(){
+//         var keyups = Observable.fromEvent($("#mySearch"), "keyup")
+//           .map(e => e.target.value)
+//           // .filter(text => text.length >= 3)
+//           // .debounceTime(400)
+//           .distinctUntilChanged()
+//           .flatMap(searchTerm => {
+//               console.log("BABABABABANNANANANA")
+//               var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q="+searchTerm;
+//               var promise = $.getJSON(url);
+//               return Observable.fromPromise(promise);
+//           });
+//
+//       keyups.subscribe(data => console.log(data))
+//     });
+// }
+//   var text = e.target.value;
+//
+//   if(text.length < 3) {
+//       return;
+//   }
+//
+//   var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q="+text;
+//   $.getJSON(url, function(cards){
+//       console.log(cards);
+//   })
+//   })
 // }
 //# sourceMappingURL=SearchResults.component.js.map
