@@ -5,17 +5,18 @@ import {Auth} from '../auth.service/auth.service';
 @Component({
     selector: 'my-header',
     template: `
-      <div class="masthead clearfix">
-        <div class="inner">
-          <a [routerLink]="['Home']"><h3 class="masthead-brand"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Flash</h3></a>
-          <nav>
-            <ul class="nav masthead-nav">
-              <li class="active"><button class="btn btn-primary btn-margin" (click)="auth.login()">Log In</button></li>
-              <li><button class="btn btn-primary btn-margin" (click)="auth.logout()">Log Out</button></li>
-            </ul>
-          </nav>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" [routerLink]="['Home']"><h3 class="navbar-header"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Flash</h3></a>
         </div>
-      </div>`,
+        <ul class="nav navbar-nav">
+          <li><a (click)="auth.login()">Log In</a></li>
+          <li><a (click)="auth.logout()">Log Out</a></li>
+        </ul>
+      </div>
+      </nav>
+      `,
   directives: [ROUTER_DIRECTIVES],
   providers: [Auth]
 })
