@@ -22,6 +22,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
  <div class="row">
  <h3 *ngIf="decks[0]">Available Flashcard Decks</h3>
+ <h3 *ngIf="!decks[0]">Enter Valid (almost any word/subject) Flashcard Deck Name</h3>
  <ul>
     <div class="list-group">
         <p *ngFor="#deck of decks"><a class="list-group-item list-group-item-action"  [routerLink]="['FlashCard', {id: deck.id}]"><strong>{{deck.title}}</strong> - Card Count: {{deck.term_count}}</a></p>
