@@ -21,10 +21,12 @@ import {StopTimer} from '../StopTimer/StopTimer';
                 </div>
                 <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
                 <div class="col-lg-8 col-md-8 well flashCardContainer">
-                    <div id="card">
-                        <figure class="front">hadfhadffsdfasfasdfasdfasdfasdfasdfasdfasdfasdf</figure>
-                        <figure class="back">gasdfasdfasdfasdgadfgafgasgadsgsdgasgasggasdgasdgasg</figure>
-                    </div>
+                  <div class="front">
+                    <p class="front">{{currentFront}}</p>
+                  </div>
+                  <div class="back">
+                    <p class="back">{{currentBack}}</p>
+                  </div>
                 </div>
             </div>
             <div class="row">
@@ -33,21 +35,21 @@ import {StopTimer} from '../StopTimer/StopTimer';
                       <div class="timer">
                         <div  class="time" [innerHTML]="timer.timeString"></div>
                         <div class="controls">
-                          <button class="btn"(click)="timer.toggle()">Toggle</button>
+                          <button class="btn"(click)="timer.toggle()">Pause</button>
                           <button class="btn"(click)="timer.reset()">Reset</button>
                         </div>
                       </div>
                     </stop-timer>
                 </div>
                 <div class="col-sm-8 col-md-8 col-lg-8 text-center">
-                  <button type="button" class="btn btn-default btn-lg">
+                  <button (click)="previousCard()" type="button" class="btn btn-default btn-lg">
                   <span class="glyphicon glyphicon-menu-left
-                  " aria-hidden="true"></span> Last
+                  " aria-hidden="true"></span> Previous
                   </button>
                   <button type="button" (click)="toggleFlip()" class="btn btn-default btn-lg">
                     <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Flip
                   </button>
-                  <button type="button" class="btn btn-default btn-lg">
+                  <button (click)="nextCard()" type="button" class="btn btn-default btn-lg">
                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> Next
                   </button>
                 </div>
@@ -85,10 +87,24 @@ export class FlashcardComponent implements OnInit{
 
     highlight(index){
         this.highlightedIndex = index;
+        this.currentFront = this.deck.terms[index].term;
+        this.currentBack = this.deck.terms[index].definition;
+    }
+
+    previousCard(){
+      this.highlightedIndex--;
+      this.currentFront = this.deck.terms[this.highlightedIndex].term;
+      this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+    }
+
+    nextCard(){
+      this.highlightedIndex++;
+      this.currentFront = this.deck.terms[this.highlightedIndex].term;
+      this.currentBack = this.deck.terms[this.highlightedIndex].definition;
     }
 
     toggleFlip(){
-        $('#card').toggleClass("flipped");
+        $('.card').toggleClass("flipped");
     }
 
   ngOnInit() {
