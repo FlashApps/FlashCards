@@ -11,10 +11,13 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   <main>
      <form class="form-inline" >
      <div class="form-group">
-      <label for="searchForm">Search</label>
+  <div class="row">
+      <h1>Start Typing to Search</h1>
+</div>
+<div class="row">
+
       <input type="text" class="form-control" id="searchForm" placeholder="Search">
-    </div>
-    <button id="mySearch" type="submit" class="btn btn-primary">Search</button>
+    </div></div>
   </form>
 
  <div class="row">
@@ -45,7 +48,7 @@ export class SearchResultsComponent implements OnInit {
             var keyups = Observable.fromEvent($("#searchForm"), "keyup")
                 .map(e => e.target.value)
                 .filter(text => text.length >= 3)
-                .debounceTime(400)
+                .debounceTime(200)
                 .distinctUntilChanged()
                 .flatMap(searchTerm => {
                     var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;

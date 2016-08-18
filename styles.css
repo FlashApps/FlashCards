@@ -66,6 +66,7 @@ main {
 .flashCardContainer {
     position: relative;
     min-height: 30rem;
+    color: black;
 }
 
 .flashCardContainer p {
@@ -79,10 +80,12 @@ main {
     min-height: 30rem;
     overflow: auto;
     max-height: 30rem;
+    color: black;
 }
 
 .flashCardButtonContainer {
     padding: 4rem;
+
 }
 
 .navigate {
