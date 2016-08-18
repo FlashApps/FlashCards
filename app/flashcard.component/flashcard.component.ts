@@ -7,13 +7,12 @@ import {RouteParams} from 'angular2/router';
             <div class="row">
                 <div class="col-lg-3 col-md-3 hidden-sm hidden-xs well flashCardSidebar">
                 <ul>
-                  <li (click)="" *ngFor="#card of deck.terms">{{card.term}}</li>
+                  <li *ngFor="#card of deck.terms">{{card.term}}</li>
                 </ul>
                 </div>
                 <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
                 <div class="col-lg-8 col-md-8 well flashCardContainer">
-                    <p>Click to Flip!</p>
-                </div>
+            </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-4 hidden-sm hidden-xs"></div>
@@ -33,24 +32,22 @@ import {RouteParams} from 'angular2/router';
         </main>
     `
 })
+
 export class FlashcardComponent implements OnInit{
   deckId: Object;
-  deck: Object = {"Test":"iniatialize"};
+  deck: Object = {};
+  count: number = 0;
 
   constructor (params: RouteParams){
-          this.deckId = params.get("id");
-          console.log(this.deckId)
+      this.deckId = params.get("id");
+      console.log(this.deckId)
   }
-
   ngOnInit() {
-      $(document).ready(() => {
-
-      var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
-      $.get(url).done( (data) => {
-          this.deck = data;
-          console.log(this.deck);
-      });
-  })
+          var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+          $.get(url).done( (data) => {
+              console.log("HAHAHA")
+              this.deck = data;
+              console.log(this.deck);
+          });
   }
-
 }
