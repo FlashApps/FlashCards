@@ -14,7 +14,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
             <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/04a/21e/24004b1.jpg" alt="picture of wes hediger a full stack developer">
             <div class="caption">
               <h3>Wes Hediger</h3>
-              <p>I thrive in environments where I solve conceptual problems using a natural talent for technically oriented detailed work. My strengths are reflective, analytic, factual and practical in nature. I gain long-term satisfaction by taking on unique goal oriented challenges to learn and use new information and make improvements with practical and social merit..</p>
+              <p>I thrive in environments where I solve conceptual problems using a natural talent for technically oriented detailed work. My strengths are reflective, analytic, factual and practical in nature. I gain long-term satisfaction by taking on unique goal oriented challenges to learn and use new information and make improvements with practical and social merit.</p>
               <p><a href="https://github.com/whediger" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> Github</a> <a href="https://www.linkedin.com/in/whediger" class="btn btn-primary" role="button">LinkedIn</a></p>
             </div>
           </div>
