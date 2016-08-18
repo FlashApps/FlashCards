@@ -6,46 +6,56 @@ import {StopTimer} from '../StopTimer/StopTimer';
     selector: 'flashcard',
     directives: [ StopTimer],
     template: `
-        <main>
+        <main class="container">
+
         <div class="row">
-          <div class="col-md-12">
-            <a (click)="loadPage()" (click)="timer.toggle()" id="secret"><button class="btn btn-primary btn-block">Start Timer and Begin Studying</button></a>
-          </div>
+
           <div class="row spacer">
 
           </div>
         </div>
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 well flashCardSidebar">
-                <h4>Cards on Deck</h4>
+                <h4>Cards in Deck</h4>
+                <p>Click a card to start!</p>
                 <ul>
                   <li class="cardDef" (click)="highlight(index)" *ngFor="#card of deck.terms; #index = index" [class.highlighted]="index == highlightedIndex">{{card.term}}</li>
                 </ul>
                 </div>
                 <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
-                <div class="card well effect__click">
+                <div class="col-lg-8 col-md-8 col-sm-12 card well effect__click">
                     <div class="card__front">
+                    <div class="row">
+                    <div class="row">Term</div>
                         <span class="card__text">{{currentFront}}</span>
+                        </div>
                     </div>
                     <div class="card__back">
+                    <div class="row">
+                    <div class="row">Answer</div>
                         <span *ngIf="currentBack" class="card__text">{{currentBack}}</span>
                         <img *ngIf="!currentBack" src="{{currentBackImage}}">
                     </div>
+                    </div>
                 </div>
             </div>
+            <div class="row spacer">
+
+            </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-4 col-md-4 col-sm-12">
                 <stop-timer #timer>
                       <div class="timer">
                         <div  class="time" [innerHTML]="timer.timeString"></div>
                         <div class="controls">
-                          <button class="btn"(click)="timer.toggle()">Pause</button>
-                          <button class="btn"(click)="timer.reset()">Reset</button>
+                          <button class="btn btn-outline-info
+                          "(click)="timer.toggle()">Pause</button>
+                          <button class="btn btn btn-outline-warning"(click)="timer.reset()">Reset</button>
                         </div>
                       </div>
                     </stop-timer>
                 </div>
-                <div class="col-sm-8 col-md-8 col-lg-8 text-center">
+                <div class="col-sm-12 col-md-8 col-lg-8 text-center">
                   <button (click)="previousCard()" type="button" class="btn btn-default btn-lg">
                   <span class="glyphicon glyphicon-menu-left
                   " aria-hidden="true"></span> Previous
@@ -124,7 +134,4 @@ export class FlashcardComponent implements OnInit{
         $('.card').toggleClass("flipped");
     }
 
-  ngOnInit() {
-    $('#stop').hide();
-  }
 }

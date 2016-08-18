@@ -6,8 +6,9 @@ main {
   padding-top: 1.5em;
   padding-bottom: 10rem;
 }
-.time {
-  font-size: 1.25rem;
+.timer {
+  font-size: 2.3rem;
+  padding-bottom: 1.25rem;
 }
 .spacer {
     margin: 1.5rem;
@@ -119,13 +120,14 @@ main {
 }
 
 .card {
-  position: relative;
-  float: left;
-  padding-bottom: 25%;
-  width: 50%;
+  min-height: 30rem;
+  overflow: auto;
+  max-height: 30rem;
   text-align: center;
 }
-
+.card__text {
+  padding: 1rem;
+}
 .card__front,
 .card__back {
   position: absolute;
@@ -133,6 +135,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
+  background-image: url("app/images/100lb-Linen-Natural.jpg");
 }
 
 .card__front,
@@ -144,12 +147,10 @@ main {
 }
 
 .card__front {
-  background-color: lightgray;
-  color: black;
+color: black;
 }
 
 .card__back {
-  background-color: lightgray;
   color: black;
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
