@@ -27,7 +27,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 LandingComponent = __decorate([
                     core_1.Component({
                         selector: 'landing-page',
-                        template: "\n    <main>\n        <div class=\"row landingImage\">\n            <div class=\"col-md-4 landingText\">\n                <h2>Learn Anything</h2>\n                <h3>AS NATURALLY AS LEARNING TO WALK...</h3>\n            </div>\n            <div class=\"col-lg-8\">\n\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n        </div>\n        <br><br>\n        <a [routerLink]=\"['Search']\"> <button class=\"btn btn-lg btn-primary\" >GET STARTED</button></a>\n\n    </main>\n    ",
+                        template: "\n    <main>\n        <div class=\"row landingImage\">\n            <div class=\"col-md-5 landingText\">\n                <h2>Learn Anything</h2>\n                <h3>AS NATURALLY AS LEARNING TO WALK...</h3>\n            </div>\n            <div class=\"col-lg-7\">\n\n            <img src=\"https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg\" />\n        </div>\n        </div>\n        <br><br>\n        <a [routerLink]=\"['Search']\"> <button class=\"btn btn-lg btn-primary\" >GET STARTED</button></a>\n\n    </main>\n    ",
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
