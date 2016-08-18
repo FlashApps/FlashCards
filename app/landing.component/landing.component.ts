@@ -7,11 +7,11 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
     `
     <main>
         <div class="row landingImage">
-            <div class="col-md-4 landingText">
+            <div class="col-md-5 landingText">
                 <h2>Learn Anything</h2>
                 <h3>AS NATURALLY AS LEARNING TO WALK...</h3>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-7">
 
             <img src="https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg" />
         </div>
