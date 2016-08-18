@@ -85,11 +85,9 @@ export class FlashcardComponent implements OnInit{
   constructor (params: RouteParams, http: Http){
           this.http = http;
           this.deckId = params.get("id");
-          console.log(this.deckId)
         }
 
     loadPage(){
-        console.log("Calling load page")
       $('#secret').hide();
         $('#stop').show();
       $('.cardDef').click(function() {
@@ -97,9 +95,7 @@ export class FlashcardComponent implements OnInit{
         })
       var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
         this.http.get(url).map(res => res.json()).subscribe(data => {
-            console.log("data",data)
          this.deck = data;
-         console.log('deck', this.deck)
          this.highlight(0);
      }, error => console.log(error));
 

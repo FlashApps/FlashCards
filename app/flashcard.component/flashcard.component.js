@@ -33,11 +33,9 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../StopTi
                     this.highlightedIndex = 0;
                     this.http = http;
                     this.deckId = params.get("id");
-                    console.log(this.deckId);
                 }
                 FlashcardComponent.prototype.loadPage = function () {
                     var _this = this;
-                    console.log("Calling load page");
                     $('#secret').hide();
                     $('#stop').show();
                     $('.cardDef').click(function () {
@@ -45,9 +43,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../StopTi
                     });
                     var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
                     this.http.get(url).map(function (res) { return res.json(); }).subscribe(function (data) {
-                        console.log("data", data);
                         _this.deck = data;
-                        console.log('deck', _this.deck);
                         _this.highlight(0);
                     }, function (error) { return console.log(error); });
                 };
