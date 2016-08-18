@@ -44,11 +44,12 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
       <div class="col-sm-6 col-md-6 col-lg-6">
         <div class="thumbnail">
-          <img src="..." alt="...">
+          <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAdGAAAAJGUzNDY0YzgzLWY1NzQtNDkxOS05MjlkLWM2MzBmNDc1YjZjNA.jpg" alt="Bennett Joerger">
           <div class="caption">
             <h3>Bennett Joeger</h3>
-            <p>...</p>
-            <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> Button</a> <a href="#" class="btn btn-default" role="button"> Button</a></p>
+            <p>100<i class="fa fa-percent" aria-hidden="true"></i>
+            </p>
+            <p><a href="https://github.com/Bjoerger44" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a> <a href="https://www.linkedin.com/in/bennettjoerger" class="btn btn-primary" role="button">LinkedIn</a></p>
           </div>
         </div>
       </div>
