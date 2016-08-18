@@ -20,13 +20,13 @@ import {StopTimer} from '../StopTimer/StopTimer';
                 </ul>
                 </div>
                 <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
-                <div class="col-lg-8 col-md-8 well flashCardContainer">
-                  <div class="front">
-                    <p class="front">{{currentFront}}</p>
-                  </div>
-                  <div class="back">
-                    <p class="back">{{currentBack}}</p>
-                  </div>
+                <div class="card effect__click">
+                    <div class="card__front">
+                        <span class="card__text">{{currentFront}}</span>
+                    </div>
+                    <div class="card__back">
+                        <span class="card__text">{{currentBack}}</span>
+                    </div>
                 </div>
             </div>
             <div class="row">
