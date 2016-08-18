@@ -21,11 +21,11 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6">
           <div class="thumbnail">
-            <img src="..." alt="...">
+            <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAlEAAAAJDM0MGYwOGFlLWY1NjQtNDBlYi04OGMyLThiMDg0ZGU5NDgxYQ.jpg" alt="Tim Musgrove">
             <div class="caption">
               <h3>Tim Musgrove</h3>
               <p>Web developer with specialty in MEAN stack development with specific focus on Angular and Angular2</p>
-              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              <p><a href="https://github.com/tttimmusgrove" class="btn btn-primary" role="button">Github</a> <a href=" https://linkedin.com/in/tttimmusgrove" class="btn btn-primary" role="button">LinkedIn</a></p>
             </div>
           </div>
         </div>
