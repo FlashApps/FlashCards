@@ -1,9 +1,15 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, AfterContentInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 @Component({
     selector: 'flashcard',
     template: `
         <main>
+        <div class="row">
+          <div class="col-md-12">
+            <a (click)="loadPage()" id="secret"><button class="btn btn-primary btn-block">Start Timer and Begin Studying</button></a>
+            <a id="stop"><button class="btn btn-primary btn-block">Stop Timer</button></a>
+          </div>
+        </div>
             <div class="row">
                 <div class="col-lg-3 col-md-3 hidden-sm hidden-xs well flashCardSidebar">
                 <ul>
@@ -36,6 +42,7 @@ import {RouteParams} from 'angular2/router';
 export class FlashcardComponent implements OnInit{
   deckId: Object;
   deck: Object = {};
+<<<<<<< HEAD
   count: number = 0;
 
   constructor (params: RouteParams){
@@ -49,5 +56,27 @@ export class FlashcardComponent implements OnInit{
               this.deck = data;
               console.log(this.deck);
           });
+=======
+  params: string;
+  constructor (params: RouteParams){
+          this.deckId = params.get("id");
+          console.log(this.deckId)}
+
+    loadPage(){
+      console.log("hi tim");
+      $('#secret').hide();
+        $('#stop').show();
+      var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+      $.get(url).done( (data) => {
+          this.deck = data;
+          console.log(this.deck);
+      });
+
+    }
+
+  ngOnInit() {
+    $('#stop').hide();
+
+>>>>>>> 5370a86952db1de10df92107ad1b49fede47fbcf
   }
 }
