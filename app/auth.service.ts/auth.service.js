@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2-jwt'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2-jwt', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2-jwt'], function(exports_1, context_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2_jwt_1;
+    var core_1, angular2_jwt_1, router_1;
     var Auth;
     return {
         setters:[
@@ -19,36 +19,49 @@ System.register(['angular2/core', 'angular2-jwt'], function(exports_1, context_1
             },
             function (angular2_jwt_1_1) {
                 angular2_jwt_1 = angular2_jwt_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             Auth = (function () {
-                function Auth() {
+                function Auth(authHttp, zone, router) {
+                    this.authHttp = authHttp;
+                    this.router = router;
                     // Configure Auth0
-                    this.lock = new Auth0Lock('5s3bgLbOxRq8iT8NJ7hs5c2XlyOJqhnE', 'tttimmusgrove.auth0.com', {});
-                    // Add callback for lock `authenticated` event
-                    this.lock.on("authenticated", function (authResult) {
-                        localStorage.setItem('id_token', authResult.idToken);
-                    });
+                    this.lock = new Auth0Lock('5s3bgLbOxRq8iT8NJ7hs5c2XlyOJqhnE', 'tttimmusgrove.auth0.com');
+                    this.zoneImpl = zone;
+                    this.user = JSON.parse(localStorage.getItem('profile'));
                 }
-                Auth.prototype.login = function () {
-                    // Call the show method to display the widget.
-                    this.lock.show();
-                };
-                ;
                 Auth.prototype.authenticated = function () {
                     // Check if there's an unexpired JWT
-                    // This searches for an item in localStorage with key == 'id_token'
                     return angular2_jwt_1.tokenNotExpired();
                 };
-                ;
-                Auth.prototype.logout = function () {
-                    // Remove token from localStorage
-                    localStorage.removeItem('id_token');
+                Auth.prototype.login = function () {
+                    var _this = this;
+                    // Show the Auth0 Lock widget
+                    this.lock.show({}, function (err, profile, token) {
+                        if (err) {
+                            alert(err);
+                            return;
+                        }
+                        // If authentication is successful, save the items
+                        // in local storage
+                        localStorage.setItem('profile', JSON.stringify(profile));
+                        localStorage.setItem('id_token', token);
+                        _this.zoneImpl.run(function () { return _this.user = profile; });
+                    });
                 };
-                ;
+                Auth.prototype.logout = function () {
+                    var _this = this;
+                    localStorage.removeItem('profile');
+                    localStorage.removeItem('id_token');
+                    this.zoneImpl.run(function () { return _this.user = null; });
+                    this.router.navigate(['Home']);
+                };
                 Auth = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, core_1.NgZone, router_1.Router])
                 ], Auth);
                 return Auth;
             }());
