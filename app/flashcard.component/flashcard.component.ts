@@ -96,10 +96,11 @@ export class FlashcardComponent implements OnInit{
         })
       var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
         this.http.get(url).map(res => res.json()).subscribe(data => {
-        console.log(data)
+            console.log(data)
          this.deck = data
          this.highlight(0);
      });
+
     }
 
     highlight(index){
@@ -139,6 +140,6 @@ export class FlashcardComponent implements OnInit{
 
   ngOnInit() {
     $('#stop').hide();
-    this.loadPage()
+    this.loadPage();
   }
 }
