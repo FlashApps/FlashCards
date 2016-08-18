@@ -35,7 +35,7 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                     $(document).ready(function () {
                         var keyups = Rx_1.Observable.fromEvent($("#searchForm"), "keyup")
                             .map(function (e) { return e.target.value; })
-                            .filter(function (text) { return text.length >= 3; })
+                            .filter(function (text) { return text.length >= 2; })
                             .debounceTime(200)
                             .distinctUntilChanged()
                             .flatMap(function (searchTerm) {

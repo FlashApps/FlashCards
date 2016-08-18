@@ -46,7 +46,7 @@ export class SearchResultsComponent implements OnInit {
         $(document).ready(() => {
             var keyups = Observable.fromEvent($("#searchForm"), "keyup")
                 .map(e => e.target.value)
-                .filter(text => text.length >= 3)
+                .filter(text => text.length >= 2)
                 .debounceTime(200)
                 .distinctUntilChanged()
                 .flatMap(searchTerm => {

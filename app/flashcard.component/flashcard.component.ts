@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterContentInit} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {Http} from 'angular2/http';
 import {StopTimer} from '../StopTimer/StopTimer';
@@ -49,7 +49,7 @@ import {StopTimer} from '../StopTimer/StopTimer';
                         <div  class="time" [innerHTML]="timer.timeString"></div>
                         <div class="controls">
                           <button class="btn btn-outline-info
-                          "(click)="timer.toggle()">Pause</button>
+                          "(click)="timer.toggle()">Start/Stop</button>
                           <button class="btn btn btn-outline-warning"(click)="timer.reset()">Reset</button>
                         </div>
                       </div>
@@ -89,6 +89,7 @@ export class FlashcardComponent implements OnInit{
         }
 
     loadPage(){
+        console.log("Calling load page")
       $('#secret').hide();
         $('#stop').show();
       $('.cardDef').click(function() {
@@ -96,10 +97,11 @@ export class FlashcardComponent implements OnInit{
         })
       var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
         this.http.get(url).map(res => res.json()).subscribe(data => {
-            console.log(data)
-         this.deck = data
+            console.log("data",data)
+         this.deck = data;
+         console.log('deck', this.deck)
          this.highlight(0);
-     });
+     }, error => console.log(error));
 
     }
 
@@ -116,7 +118,6 @@ export class FlashcardComponent implements OnInit{
 
     previousCard(){
       this.highlightedIndex--;
-      console.log(this.currentFront);
       this.currentFront = this.deck.terms[this.highlightedIndex].term;
       this.currentBack = this.deck.terms[this.highlightedIndex].definition;
       if(!this.currentBack) {
@@ -126,7 +127,6 @@ export class FlashcardComponent implements OnInit{
 
     nextCard(){
       this.highlightedIndex++;
-      console.log(this.currentFront);
       this.currentFront = this.deck.terms[this.highlightedIndex].term;
       this.currentBack = this.deck.terms[this.highlightedIndex].definition;
       if(!this.currentBack) {
@@ -139,7 +139,6 @@ export class FlashcardComponent implements OnInit{
     }
 
   ngOnInit() {
-    $('#stop').hide();
     this.loadPage();
   }
 }
