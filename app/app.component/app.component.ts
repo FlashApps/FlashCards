@@ -6,13 +6,14 @@ import {FooterComponent} from '../footer.component/footer.component';
 import {SearchResultsComponent} from '../SearchResults.component/SearchResults.component';
 import {LandingComponent} from '../landing.component/landing.component';
 import {FlashcardComponent} from '../flashcard.component/flashcard.component';
-
+import {DevTeamComponent} from '../devteam.component/devteam.component';
 
 
 @RouteConfig([
     { path: '/', name: 'Home', component: LandingComponent},
     { path: '/search', name: 'Search', component: SearchResultsComponent},
     { path: '/study/:id', name: 'FlashCard', component: FlashcardComponent},
+    { path: '/devteam', name: 'DevTeam', component: DevTeamComponent},
     { path: '/*other', name: 'Other', redirectTo: ['Home']}
 
 ])

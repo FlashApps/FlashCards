@@ -31,7 +31,7 @@ System.register(['angular2/core', 'angular2/router', '../auth.service/auth.servi
                 HeaderComponent = __decorate([
                     core_1.Component({
                         selector: 'my-header',
-                        template: "\n      <div class=\"masthead clearfix\">\n        <div class=\"inner\">\n          <a [routerLink]=\"['Home']\"><h3 class=\"masthead-brand\"><span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"></span> Flash</h3></a>\n          <nav>\n            <ul class=\"nav masthead-nav\">\n              <li class=\"active\"><button class=\"btn btn-primary btn-margin\" (click)=\"auth.login()\">Log In</button></li>\n              <li><button class=\"btn btn-primary btn-margin\" (click)=\"auth.logout()\">Log Out</button></li>\n            </ul>\n          </nav>\n        </div>\n      </div>",
+                        template: "\n    <nav class=\"navbar navbar-inverse\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" [routerLink]=\"['Home']\"><h3 class=\"navbar-header\"><span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"></span> Flash</h3></a>\n        </div>\n        <ul class=\"nav navbar-nav\">\n          <li><a (click)=\"auth.login()\">Log In</a></li>\n          <li><a (click)=\"auth.logout()\">Log Out</a></li>\n        </ul>\n      </div>\n      </nav>\n      ",
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [auth_service_1.Auth]
                     }), 

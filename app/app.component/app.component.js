@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../header.component/header.component', '../footer.component/footer.component', '../SearchResults.component/SearchResults.component', '../landing.component/landing.component', '../flashcard.component/flashcard.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../header.component/header.component', '../footer.component/footer.component', '../SearchResults.component/SearchResults.component', '../landing.component/landing.component', '../flashcard.component/flashcard.component', '../devteam.component/devteam.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', '../header.component/header
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, header_component_1, footer_component_1, SearchResults_component_1, landing_component_1, flashcard_component_1;
+    var core_1, router_1, header_component_1, footer_component_1, SearchResults_component_1, landing_component_1, flashcard_component_1, devteam_component_1;
     var AppComponent;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(['angular2/core', 'angular2/router', '../header.component/header
             },
             function (flashcard_component_1_1) {
                 flashcard_component_1 = flashcard_component_1_1;
+            },
+            function (devteam_component_1_1) {
+                devteam_component_1 = devteam_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -44,6 +47,7 @@ System.register(['angular2/core', 'angular2/router', '../header.component/header
                         { path: '/', name: 'Home', component: landing_component_1.LandingComponent },
                         { path: '/search', name: 'Search', component: SearchResults_component_1.SearchResultsComponent },
                         { path: '/study/:id', name: 'FlashCard', component: flashcard_component_1.FlashcardComponent },
+                        { path: '/devteam', name: 'DevTeam', component: devteam_component_1.DevTeamComponent },
                         { path: '/*other', name: 'Other', redirectTo: ['Home'] }
                     ]),
                     core_1.Component({

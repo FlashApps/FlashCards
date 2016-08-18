@@ -10,11 +10,13 @@ import {StopTimer} from '../StopTimer/StopTimer';
         <div class="row">
           <div class="col-md-12">
             <a (click)="loadPage()" (click)="timer.toggle()" id="secret"><button class="btn btn-primary btn-block">Start Timer and Begin Studying</button></a>
+
             <a id="stop" (click)="timer.toggle()"><button class="btn btn-primary btn-block">Start / Stop Timer</button></a>
           </div>
         </div>
             <div class="row">
                 <div class="col-lg-3 col-md-3 hidden-sm hidden-xs well flashCardSidebar">
+                <h4>Cards on Deck</h4>
                 <ul>
                   <li class="cardDef" (click)="highlight(index)" *ngFor="#card of deck.terms; #index = index" [class.highlighted]="index == highlightedIndex">{{card.term}}</li>
                 </ul>
@@ -25,6 +27,7 @@ import {StopTimer} from '../StopTimer/StopTimer';
                         <figure class="front">hadfhadffsdfasfasdfasdfasdfasdfasdfasdfasdfasdf</figure>
                         <figure class="back">gasdfasdfasdfasdgadfgafgasgadsgsdgasgasggasdgasdgasg</figure>
                     </div>
+
                 </div>
             </div>
             <div class="row">
@@ -80,7 +83,6 @@ export class FlashcardComponent implements OnInit{
           this.deck = data;
           console.log(this.deck);
       });
-
     }
 
     highlight(index){
