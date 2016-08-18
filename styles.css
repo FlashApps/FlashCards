@@ -34,9 +34,8 @@ main {
 
 .landingText {
   padding: 3rem;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
+
+  text-align: left;
 }
 
 .landingText h2 {
