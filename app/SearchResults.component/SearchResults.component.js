@@ -36,7 +36,7 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                         var keyups = Rx_1.Observable.fromEvent($("#searchForm"), "keyup")
                             .map(function (e) { return e.target.value; })
                             .filter(function (text) { return text.length >= 3; })
-                            .debounceTime(400)
+                            .debounceTime(200)
                             .distinctUntilChanged()
                             .flatMap(function (searchTerm) {
                             var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
@@ -51,7 +51,7 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                 SearchResultsComponent = __decorate([
                     core_1.Component({
                         selector: 'SearchResults',
-                        template: "\n  <main>\n     <form class=\"form-inline\" >\n  \u00A0 \u00A0<div class=\"form-group\">\n\u00A0 \u00A0 \u00A0 <label for=\"searchForm\">Search</label>\n\u00A0 \u00A0 \u00A0 <input type=\"text\" class=\"form-control\" id=\"searchForm\" placeholder=\"Search\">\n\u00A0 \u00A0 </div>\n\u00A0 \u00A0 <button\u00A0id=\"mySearch\" type=\"submit\" class=\"btn btn-primary\">Search</button>\n\u00A0 </form>\n\n <div class=\"row\">\n <h3 *ngIf=\"decks[0]\">Available Flashcard Decks</h3>\n\u00A0<ul>\n\u00A0   <div class=\"list-group\">\n\u00A0 \u00A0     <p *ngFor=\"#deck of decks\"><a class=\"list-group-item list-group-item-action\"  [routerLink]=\"['FlashCard', {id: deck.id}]\"><strong>{{deck.title}}</strong> - Card Count: {{deck.term_count}}</a></p>\n\u00A0   </div>\n </ul>\n\u00A0</div>\n\u00A0</main>\n  ",
+                        template: "\n  <main>\n     <form class=\"form-inline\" >\n  \u00A0 \u00A0<div class=\"form-group\">\n  <div class=\"row\">\n\u00A0 \u00A0 \u00A0 <h1>Start Typing to Search</h1>\n</div>\n<div class=\"row\">\n\n\u00A0 \u00A0 \u00A0 <input type=\"text\" class=\"form-control\" id=\"searchForm\" placeholder=\"Search\">\n\u00A0 \u00A0 </div></div>\n\u00A0 </form>\n\n <div class=\"row\">\n <h3 *ngIf=\"decks[0]\">Available Flashcard Decks</h3>\n\u00A0<ul>\n\u00A0   <div class=\"list-group\">\n\u00A0 \u00A0     <p *ngFor=\"#deck of decks\"><a class=\"list-group-item list-group-item-action\"  [routerLink]=\"['FlashCard', {id: deck.id}]\"><strong>{{deck.title}}</strong> - Card Count: {{deck.term_count}}</a></p>\n\u00A0   </div>\n </ul>\n\u00A0</div>\n\u00A0</main>\n  ",
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])

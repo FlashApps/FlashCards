@@ -13,7 +13,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
             </div>
             <img src="https://adoptresources.files.wordpress.com/2010/09/learning-istock_000011456468.jpg" />
         </div>
-        <a [routerLink]="['Search']">GET STARTED</a>
+        <a [routerLink]="['Search']"> <button class="btn btn-lg btn-primary" >GET STARTED</button></a>
 
     </main>
     `,
