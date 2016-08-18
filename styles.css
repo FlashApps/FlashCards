@@ -55,8 +55,9 @@ main {
 }
 
 .landingText {
+  display: flex;
+  flex-flow: column;
   padding: 3rem;
-
   text-align: left;
 }
 
