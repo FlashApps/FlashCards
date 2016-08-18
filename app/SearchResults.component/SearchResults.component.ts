@@ -52,7 +52,7 @@ export class SearchResultsComponent implements OnInit {
                 .debounceTime(200)
                 .distinctUntilChanged()
                 .flatMap(searchTerm => {
-                    var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
+                    var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
                     var promise = $.getJSON(url);
                     return Observable.fromPromise(promise);
                 });

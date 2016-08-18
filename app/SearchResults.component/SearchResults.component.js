@@ -39,7 +39,7 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                             .debounceTime(200)
                             .distinctUntilChanged()
                             .flatMap(function (searchTerm) {
-                            var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
+                            var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
                             var promise = $.getJSON(url);
                             return Rx_1.Observable.fromPromise(promise);
                         });
