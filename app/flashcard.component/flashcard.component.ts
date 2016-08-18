@@ -1,5 +1,6 @@
 import {Component, OnInit, AfterContentInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
+import {Http} from 'angular2/http';
 import {StopTimer} from '../StopTimer/StopTimer';
 
 @Component({
@@ -9,7 +10,6 @@ import {StopTimer} from '../StopTimer/StopTimer';
         <main class="container">
 
         <div class="row">
-
           <div class="row spacer">
 
           </div>
@@ -56,7 +56,7 @@ import {StopTimer} from '../StopTimer/StopTimer';
                     </stop-timer>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-8 text-center">
-                  <button (click)="previousCard()" type="button" class="btn btn-default btn-lg">
+                  <button *ngIf="highlightedIndex>0" (click)="previousCard()" type="button" class="btn btn-default btn-lg">
                   <span class="glyphicon glyphicon-menu-left
                   " aria-hidden="true"></span> Previous
                   </button>
@@ -80,8 +80,10 @@ export class FlashcardComponent implements OnInit{
   currentBack: string;
   currentBackImage: string;
   highlightedIndex: number = 0;
+  http: Http;
 
-  constructor (params: RouteParams){
+  constructor (params: RouteParams, http: Http){
+          this.http = http;
           this.deckId = params.get("id");
           console.log(this.deckId)
         }
@@ -93,10 +95,11 @@ export class FlashcardComponent implements OnInit{
             $(this).addClass("highlighted")
         })
       var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
-      $.get(url).done( (data) => {
-          this.deck = data;
-          console.log(this.deck);
-      });
+        this.http.get(url).map(res => res.json()).subscribe(data => {
+        console.log(data)
+         this.deck = data
+         this.highlight(0);
+     });
     }
 
     highlight(index){
@@ -134,4 +137,8 @@ export class FlashcardComponent implements OnInit{
         $('.card').toggleClass("flipped");
     }
 
+  ngOnInit() {
+    $('#stop').hide();
+    this.loadPage()
+  }
 }
