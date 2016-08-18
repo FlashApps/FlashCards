@@ -80,6 +80,18 @@ main {
     justify-content: center;
 }
 
+.list-group {
+  width: 100%;
+}
+
+.list-group p a {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .landingSearch h2, .landingSearch h3 {
     margin: 5px;
     font-size: 2em;
