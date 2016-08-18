@@ -62,33 +62,4 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
         }
     }
 });
-//    constructor(){
-//      $(document).ready(function(){
-//         var keyups = Observable.fromEvent($("#mySearch"), "keyup")
-//           .map(e => e.target.value)
-//           // .filter(text => text.length >= 3)
-//           // .debounceTime(400)
-//           .distinctUntilChanged()
-//           .flatMap(searchTerm => {
-//               console.log("BABABABABANNANANANA")
-//               var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q="+searchTerm;
-//               var promise = $.getJSON(url);
-//               return Observable.fromPromise(promise);
-//           });
-//
-//       keyups.subscribe(data => console.log(data))
-//     });
-// }
-//   var text = e.target.value;
-//
-//   if(text.length < 3) {
-//       return;
-//   }
-//
-//   var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q="+text;
-//   $.getJSON(url, function(cards){
-//       console.log(cards);
-//   })
-//   })
-// }
 //# sourceMappingURL=SearchResults.component.js.map
