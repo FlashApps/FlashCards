@@ -3,10 +3,32 @@ body {
 }
 
 main {
-  padding-top: 5rem;
-  padding-bottom: 20rem;
+  padding-top: 1.5em;
+  padding-bottom: 10rem;
+}
+.time {
+  font-size: 1.25rem;
+}
+.spacer {
+    margin: 1.5rem;
+}
+.card__front {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__back {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.cardDef {
+  text-align: left;
+  font-size: 2rem;
+}
 .landingImage {
     display: flex;
     flex-flow: row;
