@@ -95,7 +95,7 @@ export class FlashcardComponent implements OnInit{
       $('.cardDef').click(function() {
             $(this).addClass("highlighted")
         })
-      var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+      var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
         this.http.get(url).map(res => res.json()).subscribe(data => {
             console.log("data",data)
          this.deck = data;
@@ -107,31 +107,35 @@ export class FlashcardComponent implements OnInit{
 
     highlight(index){
         this.highlightedIndex = index;
-        console.log(this.currentFront);
+        if(this.deck.terms && this.deck.terms.length>0) {
         this.currentBack = this.deck.terms[index].definition;
         if(!this.currentBack) {
             this.currentBackImage = this.deck.terms[index].image.url;
         }
         this.currentFront = this.deck.terms[index].term;
-
+    }
     }
 
     previousCard(){
+        if(this.deck.terms && this.deck.terms.length>0) {
       this.highlightedIndex--;
       this.currentFront = this.deck.terms[this.highlightedIndex].term;
       this.currentBack = this.deck.terms[this.highlightedIndex].definition;
       if(!this.currentBack) {
           this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
       }
+  }
     }
 
     nextCard(){
-      this.highlightedIndex++;
-      this.currentFront = this.deck.terms[this.highlightedIndex].term;
-      this.currentBack = this.deck.terms[this.highlightedIndex].definition;
-      if(!this.currentBack) {
-          this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
-      }
+        if(this.deck.terms && this.deck.terms.length>0) {
+          this.highlightedIndex++;
+          this.currentFront = this.deck.terms[this.highlightedIndex].term;
+          this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+          if(!this.currentBack) {
+              this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+          }
+        }
     }
 
     toggleFlip(){

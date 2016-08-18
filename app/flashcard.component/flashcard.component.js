@@ -43,7 +43,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../StopTi
                     $('.cardDef').click(function () {
                         $(this).addClass("highlighted");
                     });
-                    var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+                    var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
                     this.http.get(url).map(function (res) { return res.json(); }).subscribe(function (data) {
                         console.log("data", data);
                         _this.deck = data;
@@ -53,27 +53,32 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../StopTi
                 };
                 FlashcardComponent.prototype.highlight = function (index) {
                     this.highlightedIndex = index;
-                    console.log(this.currentFront);
-                    this.currentBack = this.deck.terms[index].definition;
-                    if (!this.currentBack) {
-                        this.currentBackImage = this.deck.terms[index].image.url;
+                    if (this.deck.terms && this.deck.terms.length > 0) {
+                        this.currentBack = this.deck.terms[index].definition;
+                        if (!this.currentBack) {
+                            this.currentBackImage = this.deck.terms[index].image.url;
+                        }
+                        this.currentFront = this.deck.terms[index].term;
                     }
-                    this.currentFront = this.deck.terms[index].term;
                 };
                 FlashcardComponent.prototype.previousCard = function () {
-                    this.highlightedIndex--;
-                    this.currentFront = this.deck.terms[this.highlightedIndex].term;
-                    this.currentBack = this.deck.terms[this.highlightedIndex].definition;
-                    if (!this.currentBack) {
-                        this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+                    if (this.deck.terms && this.deck.terms.length > 0) {
+                        this.highlightedIndex--;
+                        this.currentFront = this.deck.terms[this.highlightedIndex].term;
+                        this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+                        if (!this.currentBack) {
+                            this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+                        }
                     }
                 };
                 FlashcardComponent.prototype.nextCard = function () {
-                    this.highlightedIndex++;
-                    this.currentFront = this.deck.terms[this.highlightedIndex].term;
-                    this.currentBack = this.deck.terms[this.highlightedIndex].definition;
-                    if (!this.currentBack) {
-                        this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+                    if (this.deck.terms && this.deck.terms.length > 0) {
+                        this.highlightedIndex++;
+                        this.currentFront = this.deck.terms[this.highlightedIndex].term;
+                        this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+                        if (!this.currentBack) {
+                            this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+                        }
                     }
                 };
                 FlashcardComponent.prototype.toggleFlip = function () {
