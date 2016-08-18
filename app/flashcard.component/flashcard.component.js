@@ -23,24 +23,28 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
         execute: function() {
             FlashcardComponent = (function () {
                 function FlashcardComponent(params) {
-                    this.deck = { "Test": "iniatialize" };
+                    this.deck = {};
                     this.deckId = params.get("id");
                     console.log(this.deckId);
                 }
-                FlashcardComponent.prototype.ngOnInit = function () {
+                FlashcardComponent.prototype.loadPage = function () {
                     var _this = this;
-                    $(document).ready(function () {
-                        var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + _this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
-                        $.get(url).done(function (data) {
-                            _this.deck = data;
-                            console.log(_this.deck);
-                        });
+                    console.log("hi tim");
+                    $('#secret').hide();
+                    $('#stop').show();
+                    var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+                    $.get(url).done(function (data) {
+                        _this.deck = data;
+                        console.log(_this.deck);
                     });
+                };
+                FlashcardComponent.prototype.ngOnInit = function () {
+                    $('#stop').hide();
                 };
                 FlashcardComponent = __decorate([
                     core_1.Component({
                         selector: 'flashcard',
-                        template: "\n        <main>\n            <div class=\"row\">\n                <div class=\"col-lg-3 col-md-3 hidden-sm hidden-xs well flashCardSidebar\">\n                <ul>\n                  <li (click)=\"\" *ngFor=\"#card of deck.terms\">{{card.term}}</li>\n                </ul>\n                </div>\n                <div class=\"col-lg-1 col-md-1 hidden-sm hidden-xs\"></div>\n                <div class=\"col-lg-8 col-md-8 well flashCardContainer\">\n                    <p>Click to Flip!</p>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-4 col-md-4 hidden-sm hidden-xs\"></div>\n                <div class=\"col-sm-8 col-md-8 col-lg-8 text-center\">\n                  <button type=\"button\" class=\"btn btn-default btn-lg\">\n                  <span class=\"glyphicon glyphicon-menu-left\n                  \" aria-hidden=\"true\"></span> Last\n                  </button>\n                  <button type=\"button\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span> Flip\n                  </button>\n                  <button type=\"button\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-menu-right\" aria-hidden=\"true\"></span> Next\n                  </button>\n                </div>\n            </div>\n        </main>\n    "
+                        template: "\n        <main>\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <a (click)=\"loadPage()\" id=\"secret\"><button class=\"btn btn-primary btn-block\">Start Timer and Begin Studying</button></a>\n            <a id=\"stop\"><button class=\"btn btn-primary btn-block\">Stop Timer</button></a>\n          </div>\n        </div>\n            <div class=\"row\">\n                <div class=\"col-lg-3 col-md-3 hidden-sm hidden-xs well flashCardSidebar\">\n                <ul>\n                  <li *ngFor=\"#card of deck.terms\">{{card.term}}</li>\n                </ul>\n                </div>\n                <div class=\"col-lg-1 col-md-1 hidden-sm hidden-xs\"></div>\n                <div class=\"col-lg-8 col-md-8 well flashCardContainer\">\n                    <p>Click to Flip!</p>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-4 col-md-4 hidden-sm hidden-xs\"></div>\n                <div class=\"col-sm-8 col-md-8 col-lg-8 text-center\">\n                  <button type=\"button\" class=\"btn btn-default btn-lg\">\n                  <span class=\"glyphicon glyphicon-menu-left\n                  \" aria-hidden=\"true\"></span> Last\n                  </button>\n                  <button type=\"button\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span> Flip\n                  </button>\n                  <button type=\"button\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-menu-right\" aria-hidden=\"true\"></span> Next\n                  </button>\n                </div>\n            </div>\n        </main>\n    "
                     }), 
                     __metadata('design:paramtypes', [router_1.RouteParams])
                 ], FlashcardComponent);
