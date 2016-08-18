@@ -11,11 +11,11 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
     <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-6">
           <div class="thumbnail">
-            <img src="..." alt="...">
+            <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/04a/21e/24004b1.jpg" alt="picture of wes hediger a full stack developer">
             <div class="caption">
-              <h3>Wes Heidiger</h3>
-              <p>...</p>
-              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              <h3>Wes Hediger</h3>
+              <p>I thrive in environments where I solve conceptual problems using a natural talent for technically oriented detailed work. My strengths are reflective, analytic, factual and practical in nature. I gain long-term satisfaction by taking on unique goal oriented challenges to learn and use new information and make improvements with practical and social merit.</p>
+              <p><a href="https://github.com/whediger" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> Github</a> <a href="https://www.linkedin.com/in/whediger" class="btn btn-primary" role="button">LinkedIn</a></p>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
             <div class="caption">
               <h3>Tim Musgrove</h3>
               <p>Web developer with specialty in MEAN stack development with specific focus on Angular and Angular2</p>
-              <p><a href="https://github.com/tttimmusgrove" class="btn btn-primary" role="button">Github</a> <a href=" https://linkedin.com/in/tttimmusgrove" class="btn btn-primary" role="button">LinkedIn</a></p>
+              <p><a href="https://github.com/tttimmusgrove" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> Github</a> <a href=" https://linkedin.com/in/tttimmusgrove" class="btn btn-primary" role="button">LinkedIn</a></p>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
             <div class="caption">
               <h3>Ray Koren</h3>
               <p>Full Stack Developer, SEO, Audio Enthusiast.</p>
-              <p><a href="https://github.com/rayk216" class="btn btn-primary" role="button">GitHub</a> <a href="https://www.linkedin.com/in/raykoren" class="btn btn-primary" role="button">LinkedIn</a></p>
+              <p><a href="https://github.com/rayk216" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a> <a href="https://www.linkedin.com/in/raykoren" class="btn btn-primary" role="button">LinkedIn</a></p>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
           <div class="caption">
             <h3>Bennett Joeger</h3>
             <p>...</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> Button</a> <a href="#" class="btn btn-default" role="button"> Button</a></p>
           </div>
         </div>
       </div>
