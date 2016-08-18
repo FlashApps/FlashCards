@@ -38,7 +38,7 @@ System.register(['angular2/core', 'angular2/router', '../StopTimer/StopTimer'], 
                     $('.cardDef').click(function () {
                         $(this).addClass("highlighted");
                     });
-                    var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+                    var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
                     $.get(url).done(function (data) {
                         _this.deck = data;
                         console.log(_this.deck);
@@ -46,18 +46,30 @@ System.register(['angular2/core', 'angular2/router', '../StopTimer/StopTimer'], 
                 };
                 FlashcardComponent.prototype.highlight = function (index) {
                     this.highlightedIndex = index;
-                    this.currentFront = this.deck.terms[index].term;
+                    console.log(this.currentFront);
                     this.currentBack = this.deck.terms[index].definition;
+                    if (!this.currentBack) {
+                        this.currentBackImage = this.deck.terms[index].image.url;
+                    }
+                    this.currentFront = this.deck.terms[index].term;
                 };
                 FlashcardComponent.prototype.previousCard = function () {
                     this.highlightedIndex--;
+                    console.log(this.currentFront);
                     this.currentFront = this.deck.terms[this.highlightedIndex].term;
                     this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+                    if (!this.currentBack) {
+                        this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+                    }
                 };
                 FlashcardComponent.prototype.nextCard = function () {
                     this.highlightedIndex++;
+                    console.log(this.currentFront);
                     this.currentFront = this.deck.terms[this.highlightedIndex].term;
                     this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+                    if (!this.currentBack) {
+                        this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+                    }
                 };
                 FlashcardComponent.prototype.toggleFlip = function () {
                     $('.card').toggleClass("flipped");
@@ -69,7 +81,7 @@ System.register(['angular2/core', 'angular2/router', '../StopTimer/StopTimer'], 
                     core_1.Component({
                         selector: 'flashcard',
                         directives: [StopTimer_1.StopTimer],
-                        template: "\n        <main>\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <a (click)=\"loadPage()\" (click)=\"timer.toggle()\" id=\"secret\"><button class=\"btn btn-primary btn-block\">Start Timer and Begin Studying</button></a>\n          </div>\n          <div class=\"row spacer\">\n\n          </div>\n        </div>\n            <div class=\"row\">\n                <div class=\"col-lg-3 col-md-3 col-sm-12 well flashCardSidebar\">\n                <h4>Cards on Deck</h4>\n                <ul>\n                  <li class=\"cardDef\" (click)=\"highlight(index)\" *ngFor=\"#card of deck.terms; #index = index\" [class.highlighted]=\"index == highlightedIndex\">{{card.term}}</li>\n                </ul>\n                </div>\n                <div class=\"col-lg-1 col-md-1 hidden-sm hidden-xs\"></div>\n                <div class=\"card well effect__click\">\n                    <div class=\"card__front\">\n                        <span class=\"card__text\">{{currentFront}}</span>\n                    </div>\n                    <div class=\"card__back\">\n                        <span class=\"card__text\">{{currentBack}}</span>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-4 col-md-4\">\n                <stop-timer #timer>\n                      <div class=\"timer\">\n                        <div  class=\"time\" [innerHTML]=\"timer.timeString\"></div>\n                        <div class=\"controls\">\n                          <button class=\"btn\"(click)=\"timer.toggle()\">Pause</button>\n                          <button class=\"btn\"(click)=\"timer.reset()\">Reset</button>\n                        </div>\n                      </div>\n                    </stop-timer>\n                </div>\n                <div class=\"col-sm-8 col-md-8 col-lg-8 text-center\">\n                  <button (click)=\"previousCard()\" type=\"button\" class=\"btn btn-default btn-lg\">\n                  <span class=\"glyphicon glyphicon-menu-left\n                  \" aria-hidden=\"true\"></span> Previous\n                  </button>\n                  <button type=\"button\" (click)=\"toggleFlip()\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span> Flip\n                  </button>\n                  <button (click)=\"nextCard()\" type=\"button\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-menu-right\" aria-hidden=\"true\"></span> Next\n                  </button>\n                </div>\n            </div>\n        </main>\n    "
+                        template: "\n        <main>\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <a (click)=\"loadPage()\" (click)=\"timer.toggle()\" id=\"secret\"><button class=\"btn btn-primary btn-block\">Start Timer and Begin Studying</button></a>\n          </div>\n          <div class=\"row spacer\">\n\n          </div>\n        </div>\n            <div class=\"row\">\n                <div class=\"col-lg-3 col-md-3 col-sm-12 well flashCardSidebar\">\n                <h4>Cards on Deck</h4>\n                <ul>\n                  <li class=\"cardDef\" (click)=\"highlight(index)\" *ngFor=\"#card of deck.terms; #index = index\" [class.highlighted]=\"index == highlightedIndex\">{{card.term}}</li>\n                </ul>\n                </div>\n                <div class=\"col-lg-1 col-md-1 hidden-sm hidden-xs\"></div>\n                <div class=\"card well effect__click\">\n                    <div class=\"card__front\">\n                        <span class=\"card__text\">{{currentFront}}</span>\n                    </div>\n                    <div class=\"card__back\">\n                        <span *ngIf=\"currentBack\" class=\"card__text\">{{currentBack}}</span>\n                        <img *ngIf=\"!currentBack\" src=\"{{currentBackImage}}\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-4 col-md-4\">\n                <stop-timer #timer>\n                      <div class=\"timer\">\n                        <div  class=\"time\" [innerHTML]=\"timer.timeString\"></div>\n                        <div class=\"controls\">\n                          <button class=\"btn\"(click)=\"timer.toggle()\">Pause</button>\n                          <button class=\"btn\"(click)=\"timer.reset()\">Reset</button>\n                        </div>\n                      </div>\n                    </stop-timer>\n                </div>\n                <div class=\"col-sm-8 col-md-8 col-lg-8 text-center\">\n                  <button (click)=\"previousCard()\" type=\"button\" class=\"btn btn-default btn-lg\">\n                  <span class=\"glyphicon glyphicon-menu-left\n                  \" aria-hidden=\"true\"></span> Previous\n                  </button>\n                  <button type=\"button\" (click)=\"toggleFlip()\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span> Flip\n                  </button>\n                  <button (click)=\"nextCard()\" type=\"button\" class=\"btn btn-default btn-lg\">\n                    <span class=\"glyphicon glyphicon-menu-right\" aria-hidden=\"true\"></span> Next\n                  </button>\n                </div>\n            </div>\n        </main>\n    "
                     }), 
                     __metadata('design:paramtypes', [router_1.RouteParams])
                 ], FlashcardComponent);

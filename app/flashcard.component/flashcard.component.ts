@@ -28,7 +28,8 @@ import {StopTimer} from '../StopTimer/StopTimer';
                         <span class="card__text">{{currentFront}}</span>
                     </div>
                     <div class="card__back">
-                        <span class="card__text">{{currentBack}}</span>
+                        <span *ngIf="currentBack" class="card__text">{{currentBack}}</span>
+                        <img *ngIf="!currentBack" src="{{currentBackImage}}">
                     </div>
                 </div>
             </div>
@@ -67,6 +68,7 @@ export class FlashcardComponent implements OnInit{
   params: string;
   currentFront: string;
   currentBack: string;
+  currentBackImage: string;
   highlightedIndex: number = 0;
 
   constructor (params: RouteParams){
@@ -80,7 +82,7 @@ export class FlashcardComponent implements OnInit{
       $('.cardDef').click(function() {
             $(this).addClass("highlighted")
         })
-      var url = "http://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+      var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
       $.get(url).done( (data) => {
           this.deck = data;
           console.log(this.deck);
@@ -89,20 +91,33 @@ export class FlashcardComponent implements OnInit{
 
     highlight(index){
         this.highlightedIndex = index;
-        this.currentFront = this.deck.terms[index].term;
+        console.log(this.currentFront);
         this.currentBack = this.deck.terms[index].definition;
+        if(!this.currentBack) {
+            this.currentBackImage = this.deck.terms[index].image.url;
+        }
+        this.currentFront = this.deck.terms[index].term;
+
     }
 
     previousCard(){
       this.highlightedIndex--;
+      console.log(this.currentFront);
       this.currentFront = this.deck.terms[this.highlightedIndex].term;
       this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+      if(!this.currentBack) {
+          this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+      }
     }
 
     nextCard(){
       this.highlightedIndex++;
+      console.log(this.currentFront);
       this.currentFront = this.deck.terms[this.highlightedIndex].term;
       this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+      if(!this.currentBack) {
+          this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+      }
     }
 
     toggleFlip(){
