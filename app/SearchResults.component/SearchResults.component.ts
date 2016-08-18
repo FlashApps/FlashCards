@@ -22,12 +22,10 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
  <div class="row">
  <h3 *ngIf="decks[0]">Available Flashcard Decks</h3>
- <h3 *ngIf="!decks[0]">Enter Valid (almost any word/subject) Flashcard Deck Name</h3>
- <ul>
     <div class="list-group">
-        <p *ngFor="#deck of decks"><a class="list-group-item list-group-item-action"  [routerLink]="['FlashCard', {id: deck.id}]"><strong>{{deck.title}}</strong> - Card Count: {{deck.term_count}}</a></p>
+        <p *ngFor="#deck of decks"><a class="list-group-item list-group-item-action"  [routerLink]="['FlashCard', {id: deck.id}]"><span><strong>{{deck.title}}</strong></span> <span>{{deck.description}}</span> <span>{{deck.term_count}} cards</span></a></p>
     </div>
- </ul>
+
  </div>
  </main>
   `,
@@ -54,6 +52,7 @@ export class SearchResultsComponent implements OnInit {
                 .flatMap(searchTerm => {
                     var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
                     var promise = $.getJSON(url);
+                    console.log(promise);
                     return Observable.fromPromise(promise);
                 });
 
