@@ -24,7 +24,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
             <img src="..." alt="...">
             <div class="caption">
               <h3>Tim Musgrove</h3>
-              <p>...</p>
+              <p>Web developer with specialty in MEAN stack development with specific focus on Angular and Angular2</p>
               <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
             </div>
           </div>
