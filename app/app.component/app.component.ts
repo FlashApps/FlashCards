@@ -7,7 +7,8 @@ import {SearchResultsComponent} from '../SearchResults.component/SearchResults.c
 import {LandingComponent} from '../landing.component/landing.component';
 import {FlashcardComponent} from '../flashcard.component/flashcard.component';
 import {DevTeamComponent} from '../devteam.component/devteam.component';
-
+import {enableProdMode} from 'angular2/core';
+enableProdMode();
 
 @RouteConfig([
     { path: '/', name: 'Home', component: LandingComponent},

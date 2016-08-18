@@ -10,12 +10,13 @@ System.register(['angular2/core', 'angular2/router', '../header.component/header
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, header_component_1, footer_component_1, SearchResults_component_1, landing_component_1, flashcard_component_1, devteam_component_1;
+    var core_1, router_1, header_component_1, footer_component_1, SearchResults_component_1, landing_component_1, flashcard_component_1, devteam_component_1, core_2;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+                core_2 = core_1_1;
             },
             function (router_1_1) {
                 router_1 = router_1_1;
@@ -39,6 +40,7 @@ System.register(['angular2/core', 'angular2/router', '../header.component/header
                 devteam_component_1 = devteam_component_1_1;
             }],
         execute: function() {
+            core_2.enableProdMode();
             AppComponent = (function () {
                 function AppComponent() {
                 }
