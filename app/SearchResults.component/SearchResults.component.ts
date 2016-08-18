@@ -52,7 +52,6 @@ export class SearchResultsComponent implements OnInit {
                 .flatMap(searchTerm => {
                     var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
                     var promise = $.getJSON(url);
-                    console.log(promise);
                     return Observable.fromPromise(promise);
                 });
 

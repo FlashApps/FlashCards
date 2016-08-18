@@ -41,7 +41,6 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                             .flatMap(function (searchTerm) {
                             var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
                             var promise = $.getJSON(url);
-                            console.log(promise);
                             return Rx_1.Observable.fromPromise(promise);
                         });
                         keyups.subscribe(function (data) {
