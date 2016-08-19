@@ -14,7 +14,6 @@ import {Auth} from '../auth.service/auth.service';
           <li><a [routerLink]="['Home']">Home</a></li>
           <li><a [routerLink]="['Search']">Search</a></li>
           <li><a (click)="auth.login()">Log In</a></li>
-          <li><a (click)="auth.logout()">Log Out</a></li>
         </ul>
       </div>
       </nav>
