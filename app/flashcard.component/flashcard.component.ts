@@ -26,13 +26,13 @@ import {StopTimer} from '../StopTimer/StopTimer';
                 <div class="col-lg-8 col-md-8 col-sm-12 card well effect__click">
                     <div class="card__front">
                     <div class="row">
-                    <div class="row">Term</div>
+                    <div class="row term">Term</div>
                         <span class="card__text">{{currentFront}}</span>
                         </div>
                     </div>
                     <div class="card__back">
                     <div class="row">
-                    <div class="row">Answer</div>
+                    <div class="row term">Answer</div>
                         <span *ngIf="currentBack" class="card__text">{{currentBack}}</span>
                         <img *ngIf="!currentBack" src="{{currentBackImage}}">
                     </div>
@@ -43,7 +43,7 @@ import {StopTimer} from '../StopTimer/StopTimer';
 
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 timerBox">
                 <stop-timer #timer>
                       <div class="timer">
                         <div  class="time" [innerHTML]="timer.timeString"></div>

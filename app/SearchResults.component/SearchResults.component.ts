@@ -12,7 +12,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
      <form class="form-inline" >
      <div class="form-group">
   <div class="row">
-      <h1>Start Typing to Search</h1>
+      <h1>Search for a Flashcard Deck by ANY Subject</h1>
 </div>
 <div class="row">
 
@@ -22,6 +22,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
  <div class="row">
  <h3 *ngIf="decks[0]">Available Flashcard Decks</h3>
+ <h3 *ngIf="!decks[0]">Enter a VALID subject/word (Almost anything works!)</h3>
     <div class="list-group">
         <p *ngFor="#deck of decks"><a class="list-group-item list-group-item-action"  [routerLink]="['FlashCard', {id: deck.id}]"><span><strong>{{deck.title}}</strong></span> <span>{{deck.description}}</span> <span>{{deck.term_count}} cards</span></a></p>
     </div>

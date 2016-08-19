@@ -31,7 +31,7 @@ System.register(['angular2/core', 'angular2/router', '../auth.service/auth.servi
                 HeaderComponent = __decorate([
                     core_1.Component({
                         selector: 'my-header',
-                        template: "\n    <nav class=\"navbar navbar-inverse\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" [routerLink]=\"['Home']\"><h4 class=\"navbar-header\"><i class=\"fa fa-book\" aria-hidden=\"true\"></i>Let's Learn</h4></a>\n        </div>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li><a [routerLink]=\"['Home']\">Home</a></li>\n          <li><a [routerLink]=\"['Search']\">Search</a></li>\n          <li><a (click)=\"auth.login()\">Log In</a></li>\n          <li><a (click)=\"auth.logout()\">Log Out</a></li>\n        </ul>\n      </div>\n      </nav>\n      ",
+                        template: "\n    <nav class=\"navbar navbar-inverse\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" [routerLink]=\"['Home']\"><h4 class=\"navbar-header\"><i class=\"fa fa-book\" aria-hidden=\"true\"></i>Let's Learn</h4></a>\n        </div>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li><a [routerLink]=\"['Home']\">Home</a></li>\n          <li><a [routerLink]=\"['Search']\">Search</a></li>\n          <li><a (click)=\"auth.login()\">Log In</a></li>\n        </ul>\n      </div>\n      </nav>\n      ",
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [auth_service_1.Auth]
                     }), 
