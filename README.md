@@ -6,18 +6,18 @@ There are over 100,000 subjects to choose from.
 > https://letslearn.firebaseapp.com/
 
 ## Installing locally ##
- *fork and clone this repo to your local directory
-  >>run - _npm install_ 
+  *fork and clone this repo to your local directory
+  >run - _npm install_ 
   * start a local server such as _http-server_
   * open the url for your local server in a web browser
-  >>often defaults to: http://localhost:8080
+  * often defaults to: http://localhost:8080
 
 ## Technologies used ##
-  *Angular 2
-  *TypeScript
-  *JSON Web Tokens
-  *HTML
-  *CSS
-  *Bootstrap
-  *Auth0
-  *ES6
+  -Angular 2
+  -TypeScript
+  -JSON Web Tokens
+  -HTML
+  -CSS
+  -Bootstrap
+  -Auth0
+  -ES6
