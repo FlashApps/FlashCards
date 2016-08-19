@@ -10,7 +10,7 @@ There are over 100,000 subjects to choose from.
   * run - _npm install_ 
   * start a local server such as _http-server_
   * open the url for your local server in a web browser
-  * often defaults to: http://localhost:8080
+  * note: often defaults to: http://localhost:8080
 
 ## Technologies used ##
   - Angular 2
