@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterContentInit} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {Http} from 'angular2/http';
 import {StopTimer} from '../StopTimer/StopTimer';
@@ -49,7 +49,7 @@ import {StopTimer} from '../StopTimer/StopTimer';
                         <div  class="time" [innerHTML]="timer.timeString"></div>
                         <div class="controls">
                           <button class="btn btn-outline-info
-                          "(click)="timer.toggle()">Pause</button>
+                          "(click)="timer.toggle()">Start/Stop</button>
                           <button class="btn btn btn-outline-warning"(click)="timer.reset()">Reset</button>
                         </div>
                       </div>
@@ -89,49 +89,53 @@ export class FlashcardComponent implements OnInit{
         }
 
     loadPage(){
+        console.log("Calling load page")
       $('#secret').hide();
         $('#stop').show();
       $('.cardDef').click(function() {
             $(this).addClass("highlighted")
         })
-      var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
+      var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/sets/" + this.deckId + "?client_id=BGDhWP7Cth&whitespace=1";
         this.http.get(url).map(res => res.json()).subscribe(data => {
-            console.log(data)
-         this.deck = data
+            console.log("data",data)
+         this.deck = data;
+         console.log('deck', this.deck)
          this.highlight(0);
-     });
+     }, error => console.log(error));
 
     }
 
     highlight(index){
         this.highlightedIndex = index;
-        console.log(this.currentFront);
+        if(this.deck.terms && this.deck.terms.length>0) {
         this.currentBack = this.deck.terms[index].definition;
         if(!this.currentBack) {
             this.currentBackImage = this.deck.terms[index].image.url;
         }
         this.currentFront = this.deck.terms[index].term;
-
+    }
     }
 
     previousCard(){
+        if(this.deck.terms && this.deck.terms.length>0) {
       this.highlightedIndex--;
-      console.log(this.currentFront);
       this.currentFront = this.deck.terms[this.highlightedIndex].term;
       this.currentBack = this.deck.terms[this.highlightedIndex].definition;
       if(!this.currentBack) {
           this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
       }
+  }
     }
 
     nextCard(){
-      this.highlightedIndex++;
-      console.log(this.currentFront);
-      this.currentFront = this.deck.terms[this.highlightedIndex].term;
-      this.currentBack = this.deck.terms[this.highlightedIndex].definition;
-      if(!this.currentBack) {
-          this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
-      }
+        if(this.deck.terms && this.deck.terms.length>0) {
+          this.highlightedIndex++;
+          this.currentFront = this.deck.terms[this.highlightedIndex].term;
+          this.currentBack = this.deck.terms[this.highlightedIndex].definition;
+          if(!this.currentBack) {
+              this.currentBackImage = this.deck.terms[this.highlightedIndex].image.url;
+          }
+        }
     }
 
     toggleFlip(){
@@ -139,7 +143,6 @@ export class FlashcardComponent implements OnInit{
     }
 
   ngOnInit() {
-    $('#stop').hide();
     this.loadPage();
   }
 }

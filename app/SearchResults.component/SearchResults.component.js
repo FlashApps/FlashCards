@@ -35,11 +35,11 @@ System.register(['angular2/core', 'rxjs/Rx', 'angular2/router'], function(export
                     $(document).ready(function () {
                         var keyups = Rx_1.Observable.fromEvent($("#searchForm"), "keyup")
                             .map(function (e) { return e.target.value; })
-                            .filter(function (text) { return text.length >= 3; })
+                            .filter(function (text) { return text.length >= 2; })
                             .debounceTime(200)
                             .distinctUntilChanged()
                             .flatMap(function (searchTerm) {
-                            var url = "https://cors-anywhere.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
+                            var url = "https://galvanize-cors-proxy.herokuapp.com/https://api.quizlet.com/2.0/search/sets?client_id=BGDhWP7Cth&whitespace=1&q=" + searchTerm;
                             var promise = $.getJSON(url);
                             console.log(promise);
                             return Rx_1.Observable.fromPromise(promise);
