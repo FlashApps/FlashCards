@@ -7,7 +7,7 @@ There are over 100,000 subjects to choose from.
 
 ## Installing locally ##
   * fork and clone this repo to your local directory
-  * run - _npm install_ 
+  * run - _npm install_
   * run - _npm start_
 
 ## Technologies used ##
@@ -17,3 +17,5 @@ There are over 100,000 subjects to choose from.
   - TypeScript
   - Bootstrap
   - ES6
+***********
+![Let's Learn](LetsLearn.png)
