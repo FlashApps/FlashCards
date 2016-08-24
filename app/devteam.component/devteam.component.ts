@@ -37,7 +37,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
             <div class="caption">
               <h3>Ray Koren</h3>
               <p>Full Stack Developer, SEO, Audio Enthusiast.</p>
-              <p><a href="https://github.com/rayk216" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a> <a href="https://www.linkedin.com/in/raykoren" class="btn btn-primary" role="button">LinkedIn</a></p>
+              <p><a href="https://github.com/RayKoren" class="btn btn-primary" role="button"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a> <a href="https://www.linkedin.com/in/raykoren" class="btn btn-primary" role="button">LinkedIn</a></p>
             </div>
           </div>
         </div>
