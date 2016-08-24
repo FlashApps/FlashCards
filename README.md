@@ -17,5 +17,4 @@ There are over 100,000 subjects to choose from.
   - TypeScript
   - Bootstrap
   - ES6
-***********
 ![Let's Learn](LetsLearn.png)
